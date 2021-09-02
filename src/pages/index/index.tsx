@@ -1,9 +1,16 @@
-import React ,{ Component } from 'react'
+import React ,{ Component,useCallback,useState,useEffect,useReducer } from 'react'
 import { Text } from '@tarojs/components'
-import { observer, inject } from 'mobx-react'
+import { observer, inject , MobXproviderContext } from 'mobx-react'
 import { HomeStore } from '@/store/homeStore'
 import { CommonStore } from '@/store/commonStore'
 import { IndexMain } from './indexSty'
+
+import { InfoCard } from "@/components/InfoCard";
+import { TabBar } from "@/components/TabBar";
+import { ActivityCard } from "@/components/ActivityCard";
+import { TimeOutView } from "@/components/TimeOutView";
+import { SexSelect } from "@/components/SexSelect";
+
 
 type propsType = {
   store: {

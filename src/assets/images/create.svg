@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="74px" height="74px" viewBox="0 0 74 74" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 63 (92445) - https://sketch.com -->
+    <title>新建</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="0%" y1="0%" x2="100%" y2="97.0214822%" id="linearGradient-1">
+            <stop stop-color="#FFBB00" offset="0%"></stop>
+            <stop stop-color="#FF9100" offset="100%"></stop>
+        </linearGradient>
+        <path d="M27,0 C12.0867187,0 0,12.0867187 0,27 C0,41.9132812 12.0867187,54 27,54 C41.9132812,54 54,41.9132812 54,27 C54,12.0867188 41.9132812,0 27,0 Z" id="path-2"></path>
+        <filter x="-35.2%" y="-20.4%" width="170.4%" height="170.4%" filterUnits="objectBoundingBox" id="filter-3">
+            <feOffset dx="0" dy="8" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="5" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 1   0 0 0 0 0.462745098   0 0 0 0 0.207843137  0 0 0 0.28 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="控件" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="bottom/新建" transform="translate(-22.000000, -26.000000)">
+            <g id="新建">
+                <g transform="translate(32.000000, 28.000000)">
+                    <rect id="Rectangle-3" x="0" y="0" width="54" height="54"></rect>
+                    <g id="Path">
+                        <use fill="black" fill-opacity="1" filter="url(#filter-3)" xlink:href="#path-2"></use>
+                        <use fill="url(#linearGradient-1)" fill-rule="evenodd" xlink:href="#path-2"></use>
+                    </g>
+                    <path d="M40.5,27.0263672 C40.5,28.0757812 39.6509766,28.9248047 38.6015625,28.9248047 L28.9248047,28.9248047 L28.9248047,38.5488281 C28.9248047,39.5982422 28.0757812,40.4472656 27.0263672,40.4472656 L27.0263672,40.4472656 C25.9769531,40.4472656 25.1279297,39.5982422 25.1279297,38.5488281 L25.1279297,28.9248047 L15.3984375,28.9248047 C14.3490234,28.9248047 13.5,28.0757812 13.5,27.0263672 L13.5,27.0263672 C13.5,25.9769531 14.3490234,25.1279297 15.3984375,25.1279297 L25.1279297,25.1279297 L25.1279297,15.4511719 C25.1279297,14.4017578 25.9769531,13.5527344 27.0263672,13.5527344 L27.0263672,13.5527344 C28.0757812,13.5527344 28.9248047,14.4017578 28.9248047,15.4511719 L28.9248047,25.1279297 L38.6015625,25.1279297 C39.6509766,25.1279297 40.5,25.9769531 40.5,27.0263672 L40.5,27.0263672 Z" id="Path" fill="#FFFFFF"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

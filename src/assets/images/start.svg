@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="152px" height="152px" viewBox="0 0 152 152" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 63 (92445) - https://sketch.com -->
+    <title>开始录音</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <circle id="path-1" cx="60" cy="60" r="60"></circle>
+        <filter x="-20.0%" y="-20.0%" width="140.0%" height="140.0%" filterUnits="objectBoundingBox" id="filter-2">
+            <feOffset dx="0" dy="0" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="8" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 1   0 0 0 0 0.462745098   0 0 0 0 0.207843137  0 0 0 0.25 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="页面-2" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="1.4-提醒-新建语音" transform="translate(-299.000000, -923.000000)">
+            <g id="编组-5" transform="translate(55.000000, 217.000000)">
+                <g id="开始录音" transform="translate(260.000000, 722.000000)">
+                    <g id="椭圆形">
+                        <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>
+                        <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-1"></use>
+                    </g>
+                    <circle id="椭圆形" fill="#FF7635" cx="60" cy="60" r="54"></circle>
+                    <path d="M66.1558374,46.9443314 L83.3853025,72.3783037 C84.0047983,73.2927974 83.7656552,74.5363416 82.8511614,75.1558374 C82.5200786,75.3801193 82.1293629,75.5 81.7294651,75.5 L47.2705349,75.5 C46.1659654,75.5 45.2705349,74.6045695 45.2705349,73.5 C45.2705349,73.1001022 45.3904155,72.7093866 45.6146975,72.3783037 L62.8441626,46.9443314 C63.4636584,46.0298376 64.7072026,45.7906945 65.6216963,46.4101903 C65.8320559,46.552692 66.0133357,46.7339718 66.1558374,46.9443314 Z" id="三角形" fill="#FFFFFF" transform="translate(64.500000, 60.000000) rotate(-270.000000) translate(-64.500000, -60.000000) "></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
