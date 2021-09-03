@@ -199,7 +199,183 @@ export const IndexMain = styled(View)`
 
         }
     }
+    .remindBox{
+        position:fixed;
+        bottom:110px;
+        width:686px;
+        height:221px;
+        padding:0 24px;
+        font-family: PingFangSC-Semibold;
+        font-size: 32px;
+        line-height:110px;
+        text-align:center;
+        color: #2E1C14;
+        background: #FFFFFF;
+        box-shadow: 0 0 16px 0 rgba(255,118,53,0.26);
+        border-radius: 8px;
+        box-sizing:border-box;
+        z-index:2;
+        .remindText{
+            width:100%;
+            height:110px;
+            border-bottom:1px solid #F6F6F6;
+            opacity: 0.9;
+        }
+    }
+    .bgFixedBox{
+        position:fixed;
+        left:0;
+        top:0;
+        width:100%;
+        height:100%;
+        background:rgba(0,0,0,.4);
+        z-index:3;
+        .dialogBox{
+            position:absolute;
+            top:0;
+            right:0;
+            bottom:0;
+            left:0;
+            margin:auto;
+            padding:0 32px;
+            width:640px;
+            border-radius: 16px;
+            min-height:494px;
+            height:900px;
+            background:rgba(255,255,255,1);
+            box-sizing:border-box;
+        }
+        .dialogClose{
+            position:absolute;
+            top:0;
+            right:32px;
+            width:48px;
+            height:58px;
+            z-index:2;
+        }
+        .dialogTitle{
+            height:110px;
+            line-height:110px;
+            opacity: 0.9;
+            font-family: PingFangSC-Semibold;
+            font-size: 36px;
+            color: #2E1C14;
+            text-align: center;
+        }
+        .dialogContent{
+            text-align:left;
+            margin-top:8px;
+            .item{
+                position:relative;
+                height:88px;
+                line-height:88px;
+                margin-bottom:24px;
+                border-radius: 8px;
+                background: #F9F9F9;
+                .label{
+                    position:absolute;
+                    width:84px;
+                    left:20px;
+                    font-family: PingFangSC-Semibold;
+                    font-size: 28px;
+                    color: #000000;
+                }
+                .input{
+                    padding-left:104px;
+                    box-sizing:border-box;
+                    height:88px;
+                    line-height:88px;
+                    font-size: 28px;
+                    color: #C4B4AC;
+                }
+            }
+            .textarea{
+                padding:24px;
+                width:100%;
+                height:314px;
+                background: #F9F9F9;
+                border-radius: 8px;
+                box-sizing:border-box;
+                &.text{
+                    height:auto;
+                    font-size: 28px;
+                    color: #93796D;
+                    text-align: justify;
+                    line-height: 40px;
+                }
+            }
+            .recordarea{
+                width:100%;
+                height:314px;
+                background: rgba(255,86,86,1);
+                border-radius: 8px;
+            }
+        
+        }
+        .dialogFooter{
+            position:absolute;
+            bottom:32px;
+      
+            display:flex;
+            justify-items:space-around;
+            flex-diretion:column;
+
+            .confirm{
+                width:100%;
+                height:76px;
+                line-height:74px;
+                margin-top:24px;
+                font-size:28px;
+                color:#FFFFFF;
+                background-image: linear-gradient(134deg, #FFBB00 0%, #FF9100 100%);
+                box-shadow: 0 8px 12px 0 rgba(255,118,53,0.40);
+                border-radius: 8px;
+            }
+            .button{
+                width:276px;
+                height:76px;
+                margin-right:24px;
+                line-height:76px;
+                border: 1px solid #FF7635;
+                border-radius: 8px;
+                box-sizing:border-box;
+                font-size: 28px;
+                color: #FF7635;
+                text-align:center;
+                &:last-child{
+                    margin-right:0
+                }
+                &.active{
+                    color:#FFFFFF;
+                    background: #FF7635;
+                }
+                .copytext{
+                    position:relative;
+                    top:5px;
+                    width:28px;
+                    height:28px;
+                    margin-right:8px;
+                }
+                .share{
+                    position:relative;
+                    top:5px;
+                    width:28px;
+                    height:28px;
+                    margin-right:8px;
+                }
+                .download{
+                    position:relative;
+                    top:5px;
+                    width:28px;
+                    height:28px;
+                    margin-right:8px;
+                }
+            }
+        }
+      
+    }
 `
+
 export const tabItem_GBox = css`
     width:343px;
     height:49px;
