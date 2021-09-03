@@ -88,7 +88,7 @@ export const IndexMain = styled(View)`
                     font-family: PingFangSC-Regular;
                     font-size: 28px;
                     color: rgba(46,28,20,1);
-                    max-width:569px;
+                    max-width:550px;
                     overflow:hidden;
                     white-space:nowrap;
                     text-overflow:ellipsis;
@@ -116,7 +116,7 @@ export const IndexMain = styled(View)`
                 .meeting{
                     display:inline-block;
                     float:left;
-                    margin-top:26px;
+                    margin-top:28px;
                     margin-left:15px;
                     width:21px;
                     height:28px;
@@ -162,6 +162,9 @@ export const IndexMain = styled(View)`
                          
                         }
                     }
+                    .record{
+                        color:#FFFFFF;
+                    }
                 }
             }
         }
@@ -172,6 +175,7 @@ export const IndexMain = styled(View)`
         bottom:0;
         width:100%;
         height:110px;
+        background:#fff;
         .addFixed{
             height:100%;
             .icon{

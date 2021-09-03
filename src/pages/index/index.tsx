@@ -4,8 +4,10 @@ import { observer, inject } from 'mobx-react'
 import { HomeStore } from '@/store/homeStore'
 import { CommonStore } from '@/store/commonStore'
 import { IndexMain } from './indexSty'
-import record from '@/assets/images/record.svg'
-import meeting from '@/assets/images/meeting.svg'
+import record from '@/assets/images/record.png'
+import meeting from '@/assets/images/text.png'
+import recordActive from '@/assets/images/recordActive.png'
+import meetingActive from '@/assets/images/textActive.png'
 import deleteIcon from '@/assets/images/delete.svg'
 import create from '@/assets/images/create.svg'
 // import './index.scss'
@@ -58,26 +60,26 @@ class Index extends Component {
           <view className="list">
             <view className="item">
               <text className="text">跟领导汇报调研报告</text>
-              <Image src={meeting} className="meeting" />
+              <Image src={meetingActive} className="meeting" />
             </view>
             <view className="item">
               <text className="text">跟领导汇报调研</text>
-              <Image src={record} className="record" />
+              <Image src={recordActive} className="record" />
             </view>
             <view className="item">
               <text className="text">跟领导汇报调研报告调研报告报告调研报</text>
-              <Image src={record} className="record" />
+              <Image src={recordActive} className="record" />
               <view className="deleteBox">
                 <Image src={deleteIcon} className="deleteIcon" />
               </view>
             </view>
             <view className="item">
               <text className="text">跟领导汇报调研</text>
-              <Image src={meeting} className="meeting" />
+              <Image src={meetingActive} className="meeting" />
             </view>
             <view className="item">
               <text className="text">跟领导汇报调研报告调研报告调研报告调研报告调研报告</text>
-              <Image src={meeting} className="meeting" />
+              <Image src={meetingActive} className="meeting" />
             </view>
           </view>
         </view>
@@ -90,7 +92,7 @@ class Index extends Component {
           <view className="list">
             <view className="item">
               <text className="text">跟领导汇报调研报告</text>
-              <Image src={meeting} className="meeting" />
+              <Image src={record} className="record" />
             </view>
             <view className="item">
               <text className="text">跟领导汇报调研</text>
@@ -130,8 +132,6 @@ class Index extends Component {
             <text className="text">新建提醒事项</text>
           </view>
         </view>
-
-
       </IndexMain>
     )
   }
