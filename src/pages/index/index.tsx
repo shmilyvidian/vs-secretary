@@ -4,10 +4,10 @@ import { observer, inject } from 'mobx-react'
 import { HomeStore } from '@/store/homeStore'
 import { CommonStore } from '@/store/commonStore'
 import { IndexMain } from './indexSty'
-import record from '@/assets/images/record.png'
-import meeting from '@/assets/images/meeting.png'
-import deleteIcon from '@/assets/images/delete.png'
-import create from '@/assets/images/create.png'
+import record from '@/assets/images/record.svg'
+import meeting from '@/assets/images/meeting.svg'
+import deleteIcon from '@/assets/images/delete.svg'
+import create from '@/assets/images/create.svg'
 // import './index.scss'
 type propsType = {
   store: {
@@ -70,6 +70,27 @@ class Index extends Component {
               <view className="deleteBox">
                 <Image src={deleteIcon} className="deleteIcon" />
               </view>
+            </view>
+            <view className="item">
+              <text className="text">跟领导汇报调研</text>
+              <Image src={meeting} className="meeting" />
+            </view>
+            <view className="item">
+              <text className="text">跟领导汇报调研报告调研报告调研报告调研报告调研报告</text>
+              <Image src={meeting} className="meeting" />
+            </view>
+          </view>
+        </view>
+
+        <view className="remindItem_Box">
+          <view className="title">
+            <text className="date">08月10日</text>
+            <text className="total">3个提醒事项</text>
+          </view>
+          <view className="list">
+            <view className="item">
+              <text className="text">跟领导汇报调研报告</text>
+              <Image src={meeting} className="meeting" />
             </view>
             <view className="item">
               <text className="text">跟领导汇报调研</text>
