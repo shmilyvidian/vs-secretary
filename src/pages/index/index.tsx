@@ -38,7 +38,7 @@ class Index extends Component {
     
     return (
       <IndexMain>
-        <Text>平安小秘书提交测试</Text>
+        <Text>平安小秘书提交二次测试</Text>
       </IndexMain>
     )
   }
