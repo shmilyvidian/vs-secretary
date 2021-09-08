@@ -14,36 +14,7 @@ export const IndexTabBar = styled(View)`
   box-shadow: 0 2px 20px 0 rgba(0, 0, 0, 0.2);
   border-radius: 33px;
   transition: transform 1s ease-in-out;
-  background: #c00;
-
-  .bottom-tab {
-    position: fixed;
-    display: flex;
-    width: 100%;
-    height: 49PX;
-    background: white;
-    box-shadow: 0PX -5PX 10PX 0PX rgba(0, 0, 0, 0.03);
-    bottom: 0;
-    &-item {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      &-img {
-        margin: 5PX auto 0;
-        width: 24PX;
-        height: 24PX;
-      }
-      &-text {
-        height: 14PX;
-        line-height: 14PX;
-        font-size: 10PX;
-        font-family: PingFangSC-Light, PingFang SC;
-        font-weight: 300;
-        color: rgba(68, 68, 68, 1);
-      }
-    }
-  }
+  background: #fff;
 
   .item-group-btn {
     display: flex;

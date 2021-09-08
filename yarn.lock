@@ -1350,7 +1350,7 @@
     "@babel/runtime" "^7.11.2"
     "@tarojs/runtime" "3.3.5"
 
-"@tarojs/components@3.3.5":
+"@tarojs/components@>=3", "@tarojs/components@3.3.5":
   "integrity" "sha1-ah1vZQOvoLBQkyAsYYlXa85ptgw="
   "resolved" "https://registry.nlark.com/@tarojs/components/download/@tarojs/components-3.3.5.tgz?cache=0&sync_timestamp=1630054589688&other_urls=https%3A%2F%2Fregistry.nlark.com%2F%40tarojs%2Fcomponents%2Fdownload%2F%40tarojs%2Fcomponents-3.3.5.tgz"
   "version" "3.3.5"
@@ -1503,7 +1503,7 @@
     "@tarojs/service" "3.3.5"
     "@tarojs/shared" "3.3.5"
 
-"@tarojs/react@3.3.5":
+"@tarojs/react@>=3", "@tarojs/react@3.3.5":
   "integrity" "sha1-x8gGJ/zB6pGIintftaT0IWbrACc="
   "resolved" "https://registry.nlark.com/@tarojs/react/download/@tarojs/react-3.3.5.tgz?cache=0&sync_timestamp=1630054911747&other_urls=https%3A%2F%2Fregistry.nlark.com%2F%40tarojs%2Freact%2Fdownload%2F%40tarojs%2Freact-3.3.5.tgz"
   "version" "3.3.5"
@@ -3276,7 +3276,7 @@
     "isobject" "^3.0.0"
     "static-extend" "^0.1.1"
 
-"classnames@^2.2.5":
+"classnames@^2.2.5", "classnames@^2.2.6":
   "integrity" "sha1-38+jiR4wbsHa0QXQ6I9EF7hTXo4="
   "resolved" "https://registry.nlark.com/classnames/download/classnames-2.3.1.tgz"
   "version" "2.3.1"
@@ -3976,6 +3976,11 @@
     "abab" "^2.0.0"
     "whatwg-mimetype" "^2.2.0"
     "whatwg-url" "^7.0.0"
+
+"dayjs@^1.7.7":
+  "integrity" "sha1-KIsqqC8thBimydTfWJjAc3rQKmM="
+  "resolved" "https://registry.nlark.com/dayjs/download/dayjs-1.10.6.tgz?cache=0&sync_timestamp=1625557417200&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fdayjs%2Fdownload%2Fdayjs-1.10.6.tgz"
+  "version" "1.10.6"
 
 "debug@^2.2.0":
   "integrity" "sha1-XRKFFd8TT/Mn6QpMk/Tgd6U2NB8="
@@ -6947,9 +6952,9 @@
     "stringify-object" "^3.3.0"
 
 "listr2@^3.8.2":
-  "integrity" "sha1-l3GwJAeHWqeOc9bg/2VBu+wKruk="
-  "resolved" "https://registry.nlark.com/listr2/download/listr2-3.11.0.tgz"
-  "version" "3.11.0"
+  "integrity" "sha1-qbq1zVh0/Ty3gnEY2+pv7e+8tD8="
+  "resolved" "https://registry.nlark.com/listr2/download/listr2-3.11.1.tgz?cache=0&sync_timestamp=1630420515424&other_urls=https%3A%2F%2Fregistry.nlark.com%2Flistr2%2Fdownload%2Flistr2-3.11.1.tgz"
+  "version" "3.11.1"
   dependencies:
     "cli-truncate" "^2.1.0"
     "colorette" "^1.2.2"
@@ -7066,7 +7071,7 @@
   "resolved" "https://registry.npm.taobao.org/lodash.sortby/download/lodash.sortby-4.7.0.tgz"
   "version" "4.7.0"
 
-"lodash@^4.17.11", "lodash@^4.17.14", "lodash@^4.17.15", "lodash@^4.17.19", "lodash@^4.17.20", "lodash@^4.17.21", "lodash@^4.17.3", "lodash@^4.17.4", "lodash@4.17.21":
+"lodash@^4.17.10", "lodash@^4.17.11", "lodash@^4.17.14", "lodash@^4.17.15", "lodash@^4.17.19", "lodash@^4.17.20", "lodash@^4.17.21", "lodash@^4.17.3", "lodash@^4.17.4", "lodash@4.17.21":
   "integrity" "sha1-Z5WRxWTDv/quhFTPCz3zcMPWkRw="
   "resolved" "https://registry.nlark.com/lodash/download/lodash-4.17.21.tgz?cache=0&sync_timestamp=1624543041613&other_urls=https%3A%2F%2Fregistry.nlark.com%2Flodash%2Fdownload%2Flodash-4.17.21.tgz"
   "version" "4.17.21"
@@ -9080,7 +9085,7 @@
     "iconv-lite" "0.4.24"
     "unpipe" "1.0.0"
 
-"react-dom@^17.0.0":
+"react-dom@^17.0.0", "react-dom@>=16.13.0":
   "integrity" "sha1-7P+2hF462Nv83EmPDQqTlzZQLCM="
   "resolved" "https://registry.nlark.com/react-dom/download/react-dom-17.0.2.tgz"
   "version" "17.0.2"
@@ -9113,7 +9118,7 @@
   "resolved" "https://registry.nlark.com/react-refresh/download/react-refresh-0.9.0.tgz?cache=0&sync_timestamp=1630340261610&other_urls=https%3A%2F%2Fregistry.nlark.com%2Freact-refresh%2Fdownload%2Freact-refresh-0.9.0.tgz"
   "version" "0.9.0"
 
-"react@^16.8.0", "react@^16.8.0 || 16.9.0-alpha.0", "react@^17.0.0", "react@^17.0.1", "react@17.0.2":
+"react@^16.8.0", "react@^16.8.0 || 16.9.0-alpha.0", "react@^17.0.0", "react@^17.0.1", "react@>=16.13.0", "react@17.0.2":
   "integrity" "sha1-0LXMUW0p6z7uOD91tihkz7aAADc="
   "resolved" "https://registry.nlark.com/react/download/react-17.0.2.tgz"
   "version" "17.0.2"
@@ -10825,6 +10830,16 @@
     "css-color-keywords" "^1.0.0"
     "css-mediaquery" "^0.1.2"
     "postcss-value-parser" "^3.3.0"
+
+"taro-ui@^3.0.0-alpha.3":
+  "integrity" "sha1-fOJtcaR/f77tSspiN2lihHh9MCM="
+  "resolved" "https://registry.npm.taobao.org/taro-ui/download/taro-ui-3.0.0-alpha.3.tgz"
+  "version" "3.0.0-alpha.3"
+  dependencies:
+    "classnames" "^2.2.6"
+    "dayjs" "^1.7.7"
+    "lodash" "^4.17.10"
+    "prop-types" "^15.7.2"
 
 "terser-webpack-plugin@^1.4.3":
   "integrity" "sha1-oheu+uozDnNP+sthIOwfoxLWBAs="
