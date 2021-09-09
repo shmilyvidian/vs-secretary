@@ -34,26 +34,24 @@ export class CardItem extends React.PureComponent<IProps> {
   }
   /// 长按
   longTap = (item, index, e)=>{
-    console.log("长按");
-    console.log(item,index,e)
     this.setState({
-      showDelete: true
+      showDelete: !this.state.showDelete
     })
   }
-  /// 按钮触摸开始触发的事件
-  touchStart= (e)=>{
-    this.state.showDelete = true
-    console.log('删除按钮',this.state.showDelete)
-  }
+  // /// 按钮触摸开始触发的事件
+  // touchStart= (e)=>{
+  //   this.state.showDelete = false
+  // }
+  // onTouchStart={this.touchStart.bind(this,data,key)
   
     render() {
       const { data,key} = this.props
+      let { showDelete } = this.state
       return (
-        <View className="item" key={key} onTouchStart={this.touchStart.bind(this,data,key)}
-        onLongPress={this.longTap.bind(this,data,key)}>
+        <View className="item" key={key} onLongPress={this.longTap.bind(this,data,key)}>
             <Text className="text">{data.name}</Text>
             <Image src={data.iconType =="record" ? recordActive : meetingActive} className={data.iconType =="record"? 'record' : 'meeting'} />
-              <View className="deleteBox" style={data.showDelete? "display:block":"display:none"}>
+              <View className="deleteBox" style={showDelete? "display:block":"display:none"}>
                 <Image src={deleteIcon} className="deleteIcon" />
               </View>
           </View>

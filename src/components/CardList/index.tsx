@@ -30,8 +30,6 @@ export class CardList extends React.PureComponent<IProps> {
     lastTapTime: 0, 
     // 单击事件点击后要触发的函数
     lastTapTimeoutFunc: null, 
-
-    showDelete: false,
     isShowRemind: false,
   }
 

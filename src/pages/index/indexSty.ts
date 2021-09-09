@@ -41,13 +41,14 @@ export const IndexMain = styled(View)`
     }
     .remindItem_Box{
         width:686px;
-        min-height:340px;
+        height:360px;
         margin-top:32px;
         padding:32px;
         border-radius: 8px;
         background: #F9F9F9;
         background-image:none;
         box-sizing:border-box;
+        overflow:hidden;
         .title{
             width:100%;
             height:38px;
@@ -139,8 +140,8 @@ export const IndexMain = styled(View)`
             }
         }
 
-
         &.active{
+            height:auto;
             opacity:1;
             background-image: linear-gradient(134deg, #FFBB00 0%, #FF9100 100%);
             box-shadow: 0 8px 10px 0 rgba(255,118,53,0.28);
@@ -305,12 +306,134 @@ export const IndexMain = styled(View)`
                 }
             }
             .recordarea{
+                position:relative;
                 width:100%;
-                height:314px;
-                background: rgba(255,86,86,1);
+                height:426px;
                 border-radius: 8px;
+                .time{
+                    display:inline-block;
+                    width:100%;
+                    text-align:center;
+                    opacity: 0.9;
+                    font-family: PingFangSC-Regular;
+                    font-size: 24px;
+                    color: #93796D;
+                    text-align: center;
+                    line-height: 32px;
+                }
+                .start,.stop    {
+                    position:absolute;
+                    left:260px;
+                    bottom:0;
+                    left:50%;
+                    margin-left:-60px;
+                    width:120px;
+                    height:120px;
+                }
+                .stopLeft{
+                    position:absolute;
+                    left:106px;
+                    bottom:36px;
+                    opacity: 0.9;
+                    font-family: PingFangSC-Regular;
+                    font-size: 24px;
+                    color: #2E1C14;
+                    text-align: center;
+                    line-height: 32px;
+                }
+                .stopRight{
+                    position:absolute;
+                    right:106px;
+                    bottom:36px;
+                    opacity: 0.9;
+                    font-family: PingFangSC-Regular;
+                    font-size: 24px;
+                    color: #2E1C14;
+                    text-align: center;
+                    line-height: 32px;
+                }
+                .mark,.pause{
+                    display:block;
+                    width:28px;
+                    height:28px;
+                    margin:0 auto;
+                }
             }
         
+        }
+        .video{
+            position:relative;
+            width:100%;
+            height:204px;
+            background: #FFFFFF;
+            box-shadow: 0 0 16px 0 rgba(255,118,53,0.25);
+            border-radius: 8px;
+            .videoTop{
+                font-family: PingFangSC-Semibold;
+                font-size: 28px;
+                color: #2E1C14;
+                text-align: justify;
+                .text{
+                    position:absolute;
+                    top:24px;
+                    left:24px;
+                    display:inline-block;
+                    width:220px;
+                    height:40px;
+                    line-height:40px;
+                }
+                .play{
+                    display:inline-block;
+                    position:absolute;
+                    top:25px;
+                    right:21px;
+                    width:38px;
+                    height:38px;
+                }
+              
+            }
+            .videoBottom{
+                position:relative;
+                height:204px;
+                .progress{
+                    position:absolute;
+                    left:24px;
+                    top:108px;
+                    width:528px;
+                    height:12px;
+                    background: rgba(196,180,172,0.40);
+                    border-radius: 6px;
+                    .play{
+                        position:absolute;
+                        left:0;
+                        top:-6px;
+                        width:28px;
+                        height:28px;
+                    }
+                }
+                .videoBottomLeft{
+                    position:absolute;
+                    left:24px;
+                    bottom:32px;
+                    opacity: 0.9;
+                    font-family: PingFangSC-Regular;
+                    font-size: 24px;
+                    color: #93796D;
+                    text-align: justify;
+                    line-height: 32px;
+                }
+                .videoBottomRight{
+                    position:absolute;
+                    right:24px;
+                    bottom:32px;
+                    opacity: 0.9;
+                    font-family: PingFangSC-Regular;
+                    font-size: 24px;
+                    color: #93796D;
+                    text-align: justify;
+                    line-height: 32px;
+                }
+            }
         }
         .dialogFooter{
             position:absolute;
@@ -333,6 +456,7 @@ export const IndexMain = styled(View)`
                 border-radius: 8px;
             }
             .button{
+                float:left;
                 width:276px;
                 height:76px;
                 margin-right:24px;

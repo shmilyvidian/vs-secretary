@@ -7,19 +7,19 @@ const remindCardData = [
     dataList: [
       {
         id:"5",
-        name:'跟领导汇报调研报告1',
+        name:'跟领导汇报调研领导汇报调研报告1',
         iconType:'text',
         showDelete: false,
       },
       {
         id:"6",
-        name:'跟领导汇报调研报告3',
+        name:'跟领导汇报调研领导汇报调研报告3',
         iconType:'record',
         showDelete: false,
       },
       {
         id:"7",
-        name:'跟领导汇报调研报告4',
+        name:'跟领导汇报调研报领导汇报调研告4',
         iconType:'text',
       },
       {
@@ -37,7 +37,7 @@ const remindCardData = [
   {
     id:"2",
     date: "08月10日",
-    total: "3个提醒事项",
+    total: "5个提醒事项",
     isActive: false,
     dataList: [
       {
@@ -65,7 +65,7 @@ const remindCardData = [
   {
     id:"3",
     date: "08月11日",
-    total: "3个提醒事项",
+    total: "6个提醒事项",
     dataList: [
       {
         name:'跟领导汇报调研报告2',
@@ -85,6 +85,10 @@ const remindCardData = [
       },
       {
         name:'跟领导汇报调研报告',
+        iconType:'text',
+      },
+      {
+        name:'跟领导汇报调研报告99',
         iconType:'text',
       }
     ],

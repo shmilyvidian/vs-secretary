@@ -1,6 +1,7 @@
 import React, { useState, useEffect,Component } from "react";
 import { View,Input,Text, Image } from '@tarojs/components'
-import { observer, inject, MobXProviderContext } from "mobx-react";
+import { observer, MobXProviderContext } from "mobx-react";
+
 //样式
 import store from "@/store/index";
 import { IndexMain } from './indexSty'
@@ -34,7 +35,7 @@ function useStoreData() {
     homeStore: store.homeStore,
   }
 }
-// 
+
 export enum CardStatus {
   remindStatus = 0,
   meetingStatus = 1,
@@ -45,22 +46,35 @@ export enum ModalStatus {
   checkTextStatus = 3,
   checkRecordStatus = 4,
 }
+
 const Index = observer(() => {
   const store = useStoreData()
   const [currentTabIndex, setTabIndex] = useState<number>(0)
   const [currentAddIndex, setAddIndex] = useState<number>(0)
+  const [ currentRemindCardData, setRemindCardData] = useState<Array<any>>(remindCardData)
+  const [ currentMeetingCardData, setMeetingCardData] = useState<Array<any>>([])
   const onClickTab = (currentTabIndex: number) => {
     setTabIndex(currentTabIndex)
   };
   const onClickAdd = (currentAddIndex: number) => {
     setAddIndex(currentAddIndex)
+    store.homeStore.setModalIndex(currentAddIndex)
+
   };
+  const activeEvent = (item,cur)=>{
+    const newData =currentRemindCardData.map((item,index)=>{
+      item.isActive = false;
+      if(index == cur) item.isActive = true
+      return item
+    })
+    setRemindCardData(newData)
+  }
   // tab内容区渲染
   const renderTabContent = () => {
     if (currentTabIndex === CardStatus.remindStatus) {
-      return <Card cardData={remindCardData}  />;
+      return <Card cardData={currentRemindCardData} onActiveEvent = {activeEvent.bind(this)} />;
     } else if (currentTabIndex === CardStatus.meetingStatus) {
-      return <Card cardData={meetingCardData} />;
+      return <Card cardData={currentMeetingCardData} onActiveEvent = {activeEvent.bind(this)}/>;
     }
   };
   // add按钮区渲染
@@ -72,13 +86,13 @@ const Index = observer(() => {
   }
   // modal弹窗区渲染
   const renderModalContent = () =>{
-    if (currentAddIndex === 1) {
+    if (currentAddIndex === ModalStatus.addTextStatus) {
       return <AddText/>;
-    } else if (currentAddIndex === 2) {
+    } else if (currentAddIndex === ModalStatus.addRecordStatus) {
       return <AddRecord/>;
-    } else if (currentAddIndex === 3) {
+    } else if (currentAddIndex === ModalStatus.checkTextStatus) {
       return <CheckText/>;
-    } else if (currentAddIndex === 4) {
+    } else if (currentAddIndex === ModalStatus.checkRecordStatus) {
       return <CheckRecord/>;
     } 
   }

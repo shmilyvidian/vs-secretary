@@ -4,12 +4,15 @@ import { observable, action, computed, toJS } from 'mobx'
 type UserTypes = {
     nickname: String
     sex: number | undefined
+    modalIndex: number
+
 }
 
 class HomeStore {
     @observable userInfo: UserTypes = {
         nickname: '',
-        sex: undefined
+        sex: undefined,
+        modalIndex: 0,
     }
 
     @action setChoices = (index:number) => {
@@ -17,6 +20,9 @@ class HomeStore {
     }
     @action sign(){
         console.log('sign')
+    }
+    @action setModalIndex = (index:number) => {
+        this.userInfo.modalIndex = index
     }
 
     @computed get isDoneSign () {
