@@ -34,7 +34,6 @@ export class Card extends React.PureComponent<IProps> {
                     <Text className="total">{item.total}</Text>
                   </View>
                   <CardList cardListData={item.dataList} />
-                  {/* <CardList data={item.dataList} callback={this.onActive}/> */}
                 </View>
               )
             }) : <EmptyView text='啊哦，还没有数据快去新建一个吧' />

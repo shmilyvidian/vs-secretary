@@ -2,17 +2,14 @@ import React, { useState, useEffect } from "react";
 import { View, Text } from "@tarojs/components";
 import classNames from 'classnames'
 
+
 interface IProps {
   currentTabIndex: number | undefined;
   callback: (currentTabIndex: number) => void;
 }
 
-type ITabs = {
-  currentTabIndex: Number,
-}
-
 export const TabBar = React.memo(({ currentTabIndex, callback }: IProps) => {
-  const [tabs, setTabs] = useState<ITabs[]>()
+  const [tabs, setTabs] = useState<number>()
   const [tabIndex, setTabIndex] = useState<number | undefined>(currentTabIndex)
   
   useEffect(() => {

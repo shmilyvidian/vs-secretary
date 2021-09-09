@@ -315,7 +315,8 @@ export const IndexMain = styled(View)`
         .dialogFooter{
             position:absolute;
             bottom:32px;
-      
+            width:calc(100% - 64px);
+            text-align:center;
             display:flex;
             justify-items:space-around;
             flex-diretion:column;
