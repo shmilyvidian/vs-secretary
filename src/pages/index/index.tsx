@@ -4,6 +4,7 @@ import { observer, inject, MobXProviderContext } from "mobx-react";
 //样式
 import store from "@/store/index";
 import { IndexMain } from './indexSty'
+//图片
 import record from '@/assets/images/record.png'
 import meeting from '@/assets/images/Text.png'
 import recordActive from '@/assets/images/recordActive.png'
@@ -21,6 +22,7 @@ import { AddText } from '@/components/AddText/index';
 import { AddRecord } from '@/components/AddRecord/index';
 import { CheckRecord } from '@/components/CheckRecord/index';
 import { CheckText } from '@/components/CheckText/index';
+import { remindCardData,meetingCardData } from './mockData'
 
 function useStores() {
   return React.useContext(MobXProviderContext)
@@ -32,7 +34,17 @@ function useStoreData() {
     homeStore: store.homeStore,
   }
 }
-
+// 
+export enum CardStatus {
+  remindStatus = 0,
+  meetingStatus = 1,
+}
+export enum ModalStatus {
+  addTextStatus = 1,
+  addRecordStatus = 2,
+  checkTextStatus = 3,
+  checkRecordStatus = 4,
+}
 const Index = observer(() => {
   const store = useStoreData()
   const [currentTabIndex, setTabIndex] = useState<number>(0)
@@ -43,147 +55,11 @@ const Index = observer(() => {
   const onClickAdd = (currentAddIndex: number) => {
     setAddIndex(currentAddIndex)
   };
-  const remindCardData = [
-    {
-      date: "08月09日",
-      total: "5个提醒事项",
-      dataList: [
-        {
-          name:'跟领导汇报调研报告1',
-          iconType:'text',
-          showDelete: false,
-        },
-        {
-          name:'跟领导汇报调研报告3',
-          iconType:'record',
-          showDelete: false,
-        },
-        {
-          name:'跟领导汇报调研报告4',
-          iconType:'text',
-        },
-        {
-          name:'跟领导汇报调研报告5',
-          iconType:'record',
-        },
-        {
-          name:'跟领导汇报调研报告跟领导汇报调研报告',
-          iconType:'text',
-        }
-      ],
-    },
-    {
-      date: "08月10日",
-      total: "3个提醒事项",
-      dataList: [
-        {
-          name:'跟领导汇报调研报告2',
-          iconType:'text',
-        },
-        {
-          name:'跟领导汇报调研报告',
-          iconType:'record',
-        },
-        {
-          name:'跟领导汇报调研报告',
-          iconType:'text',
-        },
-        {
-          name:'跟领导汇报调研报告',
-          iconType:'record',
-        },
-        {
-          name:'跟领导汇报调研报告',
-          iconType:'text',
-        }
-      ],
-    },
-    {
-      date: "08月11日",
-      total: "3个提醒事项",
-      dataList: [
-        {
-          name:'跟领导汇报调研报告2',
-          iconType:'text',
-        },
-        {
-          name:'跟领导汇报调研报告',
-          iconType:'record',
-        },
-        {
-          name:'跟领导汇报调研报告',
-          iconType:'text',
-        },
-        {
-          name:'跟领导汇报调研报告',
-          iconType:'record',
-        },
-        {
-          name:'跟领导汇报调研报告',
-          iconType:'text',
-        }
-      ],
-    },
-  ];
-  const meetingCardData = [
-    {
-      date: "08月09日",
-      total: "6个提醒事项",
-      dataList: [
-        {
-          name:'跟领导汇报调研报告',
-          iconType:'text',
-        },
-        {
-          name:'跟领导汇报调研报告',
-          iconType:'record',
-        },
-        {
-          name:'跟领导汇报调研报告',
-          iconType:'text',
-        },
-        {
-          name:'跟领导汇报调研报告',
-          iconType:'record',
-        },
-        {
-          name:'跟领导汇报调研报告',
-          iconType:'text',
-        }
-      ],
-    },
-    {
-      date: "08月10日",
-      total: "3个提醒事项",
-      dataList: [
-        {
-          name:'跟领导汇报调研报告2',
-          iconType:'text',
-        },
-        {
-          name:'跟领导汇报调研报告',
-          iconType:'record',
-        },
-        {
-          name:'跟领导汇报调研报告',
-          iconType:'text',
-        },
-        {
-          name:'跟领导汇报调研报告',
-          iconType:'record',
-        },
-        {
-          name:'跟领导汇报调研报告',
-          iconType:'text',
-        }
-      ],
-    },
-  ];
   // tab内容区渲染
   const renderTabContent = () => {
-    if (currentTabIndex === 0) {
-      return <Card cardData={remindCardData} />;
-    } else if (currentTabIndex === 1) {
+    if (currentTabIndex === CardStatus.remindStatus) {
+      return <Card cardData={remindCardData}  />;
+    } else if (currentTabIndex === CardStatus.meetingStatus) {
       return <Card cardData={meetingCardData} />;
     }
   };
@@ -197,19 +73,18 @@ const Index = observer(() => {
   // modal弹窗区渲染
   const renderModalContent = () =>{
     if (currentAddIndex === 1) {
-      return <CheckRecord/>;
+      return <AddText/>;
     } else if (currentAddIndex === 2) {
       return <AddRecord/>;
     } else if (currentAddIndex === 3) {
-      return <AddRecord/>;
+      return <CheckText/>;
+    } else if (currentAddIndex === 4) {
+      return <CheckRecord/>;
     } 
   }
   return (
     <IndexMain>
-      <TabBar
-        currentTabIndex={currentTabIndex}
-        callback={onClickTab}
-      />
+      <TabBar currentTabIndex={currentTabIndex} callback={onClickTab}/>
       {renderTabContent()}
       {renderAddContent()}
       {renderModalContent()}

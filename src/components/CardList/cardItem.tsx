@@ -9,21 +9,54 @@ interface IProps {
     key: number
 }
 
-export function CardItem({data,key}: IProps) {
-    // 跳详情页
-    // const onClickItem = () => {
-    //     typeof callback === 'function' && callback.call(null)
-    // }
+export class CardItem extends React.PureComponent<IProps> {
+  constructor(IProps) {
+    super(IProps)
+  }
 
-    return (
+  state={
+    // 触摸开始时间
+    touchStartTime: 0,
+    // 触摸结束时间
+    touchEndTime: 0,  
+    // 最后一次单击事件点击发生时间
+    lastTapTime: 0, 
+    // 单击事件点击后要触发的函数
+    lastTapTimeoutFunc: null, 
 
-        <View className="item">
+    showDelete: false,
+    isShowRemind: false,
+  }
 
-          <Text className="text">{data.name}</Text>
-          <Image src={data.iconType =="record" ? recordActive : meetingActive} className={data.iconType =="record"? 'record' : 'meeting'} />
-            <View className="deleteBox" style={data.showDelete? "display:block":"display:none"}>
-              <Image src={deleteIcon} className="deleteIcon" />
-            </View>
-        </View>
-    )
+  /// 按钮触摸结束触发的事件
+  touchEnd = (e)=>{
+    this.state.touchEndTime = e.timeStamp
+  }
+  /// 长按
+  longTap = (item, index, e)=>{
+    console.log("长按");
+    console.log(item,index,e)
+    this.setState({
+      showDelete: true
+    })
+  }
+  /// 按钮触摸开始触发的事件
+  touchStart= (e)=>{
+    this.state.showDelete = true
+    console.log('删除按钮',this.state.showDelete)
+  }
+  
+    render() {
+      const { data,key} = this.props
+      return (
+        <View className="item" key={key} onTouchStart={this.touchStart.bind(this,data,key)}
+        onLongPress={this.longTap.bind(this,data,key)}>
+            <Text className="text">{data.name}</Text>
+            <Image src={data.iconType =="record" ? recordActive : meetingActive} className={data.iconType =="record"? 'record' : 'meeting'} />
+              <View className="deleteBox" style={data.showDelete? "display:block":"display:none"}>
+                <Image src={deleteIcon} className="deleteIcon" />
+              </View>
+          </View>
+      )
+    }
 }

@@ -48,7 +48,6 @@ export class CardList extends React.PureComponent<IProps> {
   touchStart= (e)=>{
     console.log(e)
     this.state.touchStartTime = e.timeStamp
-
   }
   /// 单击、双击
   // multipleTap = (e) {
@@ -91,7 +90,6 @@ export class CardList extends React.PureComponent<IProps> {
   }
   render(){
     const { cardListData = [] } = this.props;
-    let { showDelete } = this.state;
     console.log(cardListData,'vs',this.props)
     return(
       <View className="list">
@@ -100,15 +98,6 @@ export class CardList extends React.PureComponent<IProps> {
         cardListData.map((item: cardListDataType, index: any) => {
             return (
               <CardItem data={item} key={index} />
-              // <View className="item" key={index} onTouchStart={this.touchStart.bind(this,item,index)}
-              // onLongPress={this.longTap.bind(this,item,index)}>
- 
-              //   <Text className="text">{item.name}</Text>
-              //   <Image src={item.iconType =="record" ? recordActive : meetingActive} className={item.iconType =="record"? 'record' : 'meeting'} />
-              //     <View className="deleteBox" style={item.showDelete? "display:block":"display:none"}>
-              //       <Image src={deleteIcon} className="deleteIcon" />
-              //     </View>
-              // </View>
             )
           }) : <EmptyView text='啊哦，还没有数据快去新建一下吧' />
       }
