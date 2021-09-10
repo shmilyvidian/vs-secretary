@@ -8,8 +8,9 @@ import meeting from '@/assets/images/meeting.png'
 import meetingActive from '@/assets/images/meetingActive.png'
 import deleteIcon from '@/assets/images/delete.svg'
 import { observer, MobXProviderContext } from "mobx-react";
-
 import store from "@/store/index";
+import { CheckRecord } from '@/components/CheckRecord/index';
+import { CheckText } from '@/components/CheckText/index';
 
 interface IProps {
     data: any
@@ -36,6 +37,7 @@ export class CardItem extends React.PureComponent<IProps> {
 
     showDelete: false,
     isShowRemind: false,
+    isShowCheck: false,
   }
 
   /// 按钮触摸结束触发的事件
@@ -55,6 +57,22 @@ export class CardItem extends React.PureComponent<IProps> {
     })
     homeStore.userInfo.delNoticeFN && homeStore.userInfo.delNoticeFN(item,parentKey)
   }
+  handlerCheck = () => {
+    this.setState({
+      isShowCheck: !this.state.isShowCheck
+    })
+  }
+  
+  renderCheckModal = () => {
+    const { data } = this.props
+    if ( data.iconType== "text") {
+      return <CheckText checkData={data} />;
+    } else if(data.iconType== "record"){
+      return <CheckRecord checkData={data}/>;
+    } 
+  }
+
+
   // /// 按钮触摸开始触发的事件
   // touchStart= (e)=>{
   //   this.state.showDelete = false
@@ -63,13 +81,14 @@ export class CardItem extends React.PureComponent<IProps> {
   
     render() {
       const { data,key,isActive,type,parentKey} = this.props
-      let { showDelete } = this.state
+      let { showDelete,isShowCheck } = this.state
       return (
-        <View className="item" key={key} onLongPress={this.longTap.bind(this,data,key)}>
-            {data.time?<Image src={isActive? meeting:meetingActive} className="meeting"></Image>:null}
-            <Text className="time">{data.time}</Text>
+        <View className="item" key={key} onLongPress={this.longTap.bind(this,data,key)} onClick={this.handlerCheck.bind(this)}>
+          {isShowCheck?this.renderCheckModal():null}
+            {type=="meeting"?<Image src={isActive? meeting:meetingActive} className="meeting"></Image>:null}
+            {type=="remind"?null:<Text className="time">{data.time}</Text>}
             <View className="text">
-              {type=="record"?<Text className="textBefore"></Text>:null}
+              {type=="remind"?<Text className="textBefore"></Text>:null}
               {data.name}
             </View>
             <Image src={type=="meeting"?"":data.iconType =="record" ? isActive ? recordActive: record : isActive?textActive: text} className={data.iconType =="record"? 'record' : 'textIcon'} />

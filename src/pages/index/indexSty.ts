@@ -283,6 +283,30 @@ export const IndexMain = styled(View)`
             font-size: 36px;
             color: #2E1C14;
             text-align: center;
+            &.check{
+                display:flex;
+                opacity: 0.9;
+                font-family: PingFangSC-Semibold;
+                font-size: 36px;
+                color: #2E1C14;
+                text-align: center;
+                padding-top:30px;
+                overflow:hidden;
+                align-items:center;
+                height:110px;
+                line-height:44px;
+                box-sizing:border-box;
+                
+            }
+        }
+        .dialogDate{
+            opacity: 0.9;
+            font-family: PingFangSC-Regular;
+            font-size: 24px;
+            color: #93796D;
+            text-align: justify;
+            line-height: 32px;
+            text-align:right;
         }
         .dialogContent{
             text-align:left;
@@ -368,6 +392,18 @@ export const IndexMain = styled(View)`
                     color: #93796D;
                     text-align: justify;
                     line-height: 40px;
+                }
+                &.content{
+                    padding:24px;
+                    height:auto;
+                    max-height:640px;
+                    font-family: PingFangSC-Regular;
+                    font-size: 30px;
+                    color: #93796D;
+                    text-align: justify;
+                    line-height: 40px;
+                    overflow:hidden;
+                    box-sizing:border-box;
                 }
             }
             .recordarea{

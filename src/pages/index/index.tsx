@@ -22,8 +22,7 @@ import { Card } from '@/components/Card/index';
 import { AddContent } from '@/components/AddContent/index';
 import { AddText } from '@/components/AddText/index';
 import { AddRecord } from '@/components/AddRecord/index';
-import { CheckRecord } from '@/components/CheckRecord/index';
-import { CheckText } from '@/components/CheckText/index';
+
 import { remindCardData,meetingCardData } from './mockData'
 
 function useStores() {
@@ -95,6 +94,9 @@ const Index = observer(() => {
 
   store.homeStore.setDelNoticeFN(delNoticeFN)
 
+
+
+
   // tab内容区渲染
   const renderTabContent = () => {
     if (currentTabIndex === CardStatus.remindStatus) {
@@ -155,6 +157,7 @@ const Index = observer(() => {
         const newChildList = [...item.dataList]
         newChildList.unshift(noticeItem)
         item.dataList = newChildList
+        item.isActive = true
       }
     })
     // 如果在当前分组日期内直接插入数组，否则新增一个日期分组
@@ -172,47 +175,45 @@ const Index = observer(() => {
   }
 
   // 新建语音提示事项
-  const onAddRecordDataHandler = (data) =>{
-    //定义转换日期函数
-    const getDate = date =>{
-      var now = new Date(date),
-      m = ("0" + (now.getMonth() + 1)).slice(-2),
-      d = ("0" + now.getDate()).slice(-2);
-      return m + "月" + d + "日"
+  const onAddRecordDataHandler = (data) => {
 
+    const getDate = date => {
+      var now = new Date(date),
+        m = ("0" + (now.getMonth() + 1)).slice(-2),
+        d = ("0" + now.getDate()).slice(-2);
+      return m + "月" + d + "日"
     }
     // 转换添加的数据日期
     const dateStr = getDate(data.dateSel)
-    const newMeetingCardData = [...currentMeetingCardData]
-    //定义添加的item数据
+
+    const newRemindCardData = [...currentRemindCardData]
     const noticeItem = {
-      name: data.recordTheme || '',
-      time:'16:40',
+      name:data.recordTheme || '',
       iconType:'meeting',
       status:'done'
     }
-    //判断添加数据是否在当前日期分组，如果在直接插入分组，否则新增一个日期分组
     let inCurrentGrop = false
-    newMeetingCardData.forEach(item => {
+    newRemindCardData.forEach(item => {
       item.isActive = false
       if (item.date === dateStr) {
         inCurrentGrop = true
         const newChildList = [...item.dataList]
         newChildList.unshift(noticeItem)
         item.dataList = newChildList
+        item.isActive = true
       }
     })
     // 如果在当前分组日期内直接插入数组，否则新增一个日期分组
     if (!inCurrentGrop) {
-      newMeetingCardData.unshift({
+      newRemindCardData.unshift({
         id: Date.parse(new Date()).toString(),
         date: dateStr,
-        type: "record",
+        type: "meeting",
         isActive: true,
         dataList: [noticeItem]
       })
     }
-    setRemindCardData(newMeetingCardData)
+    setRemindCardData(newRemindCardData)
     setIsCloseModal(true)
   }
 
@@ -221,16 +222,13 @@ const Index = observer(() => {
     if (currentAddIndex === ModalStatus.addTextStatus) {
       return <AddText onAddTextDataHandler={onAddTextDataHandler.bind(this)} onAddModalClose={onAddModalClose.bind(this)} />;
     } else if (currentAddIndex === ModalStatus.addRecordStatus) {
-      return <AddRecord/>;
-    } else if (currentAddIndex === ModalStatus.checkTextStatus) {
-      return <CheckText/>;
-    } else if (currentAddIndex === ModalStatus.checkRecordStatus) {
-      return <CheckRecord/>;
+      return <AddRecord onAddRecordDataHandler={onAddRecordDataHandler.bind(this)} onAddModalClose={onAddModalClose.bind(this)} />;
     } 
   }
   const onAddModalClose =()=>{
     onClickAdd(0)
   }
+  
   return (
     <IndexMain> 
       <TabBar currentTabIndex={currentTabIndex} callback={onClickTab}/>

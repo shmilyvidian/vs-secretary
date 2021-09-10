@@ -6,6 +6,8 @@ type UserTypes = {
     sex: number | undefined
     modalIndex: number
     delNoticeFN:Function|null
+    checkNoticeFN:Function|null
+    closeAddContentFN:Function|null
 
 }
 
@@ -14,13 +16,17 @@ class HomeStore {
         nickname: '',
         sex: undefined,
         modalIndex: 0,
-        delNoticeFN:null
+        delNoticeFN:null,
+        checkNoticeFN:null,
+        closeAddContentFN:null,
     }
     @observable recordData: UserTypes = {
         nickname: '',
         sex: undefined,
         modalIndex: 0,
         delNoticeFN:null,
+        checkNoticeFN:null,
+        closeAddContentFN:null,
     }
 
     @action setChoices = (index:number) => {
@@ -35,6 +41,13 @@ class HomeStore {
     @action setDelNoticeFN = (fn:Function)=>{
         this.userInfo.delNoticeFN =fn
     }
+    @action setCloseAddContentFN = (fn: Function) => {
+        this.userInfo.closeAddContentFN = fn
+    }
+    @action setCheckNoticeFN = (fn:Function)=>{
+        this.userInfo.checkNoticeFN =fn
+    }
+
 
     @computed get isDoneSign () {
         return Object.values(this.userInfo).every(o=>(o || o === 0))

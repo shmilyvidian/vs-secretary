@@ -2,12 +2,18 @@ import React from 'react'
 import { View ,Text,Image,Input} from '@tarojs/components'
 import close from '@/assets/images/close.svg'
 import copytext from '@/assets/images/copytext.svg'
-import share from '@/assets/images/share.svg'
+import start from '@/assets/images/start.png'
+import stop from '@/assets/images/stop.png'
+import mark from '@/assets/images/mark.png'
+import pause from '@/assets/images/pause.png'
+import play from '@/assets/images/play.png'
+import share from '@/assets/images/share.png'
+
 type checkDataType = {
   name: string
 }
 interface IProps {
-  checkData?: checkDataType[]
+  checkData?: any
 }
 
 export class CheckText extends React.PureComponent<IProps>  {
@@ -25,21 +31,19 @@ export class CheckText extends React.PureComponent<IProps>  {
 
   render() {
     let { isShowModal } = this.state
+    const { checkData } = this.props
     return (
 
       <View className="bgFixedBox" style={isShowModal? "display:block":"display:none"}>
       <View className="dialogBox">
         <Image src={close} className="dialogClose" onClick={()=> {this.closeModal()}}></Image>
-        <View className="dialogTitle" style={"text-align:left;width:90%;"}>
-          <Text>跟领导汇报调研报告</Text>
-          </View>
+        <View className="dialogTitle check" style={"text-align:left;width:90%;"}>
+          <Text className="dialogText">{checkData.name}</Text>
+        </View>
+        <View className="dialogDate">{checkData.date} {checkData.time}</View>
           <View className="dialogContent">
-            <View className="textarea text">
-            主要基于为期3天的调用得出结论结论，主要汇报事项如下：
-              1.调研背景
-              2.调研样本
-              3.调研方法
-              4.这里是步骤四这里是步骤四这里是步骤四这里是步骤四这里是步骤四这里是步骤四这里是步骤四这里是步骤四这里是步骤四这里是步骤四这里是步骤四这里是步骤四这里是步骤四这里是步骤四这里是步骤四这里是步骤四这里是步骤四这里是步骤四这里是步骤四这里是步骤四这里是步骤四这里是步骤四这里是步骤四这里是步骤四这里是步骤四这里是步骤四这里是步骤四这里是步骤四这里是步骤四
+            <View className="textarea content">
+              {checkData.content}
             </View>
           </View>
 

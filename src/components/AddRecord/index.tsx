@@ -14,7 +14,8 @@ type dataType = {
 
 }
 interface IProps {
-
+  onAddRecordDataHandler:any
+  onAddModalClose:()=>void
 }
 export class AddRecord extends React.PureComponent<IProps>  {
   constructor(IProps) {
@@ -29,11 +30,6 @@ export class AddRecord extends React.PureComponent<IProps>  {
     recordTheme: '',
     dateSel: new Date().getFullYear() + '-' + (new Date().getMonth() + 1) + '-' + new Date().getDate(),
     timeSel: new Date().getHours() + ':' + new Date().getMinutes(),
-  }
-  closeModal = () => {
-    this.setState({
-      isShowModal: false
-    })
   }
   handleAdd = () => {
     this.setState({
@@ -69,6 +65,17 @@ export class AddRecord extends React.PureComponent<IProps>  {
     this.setState({
       dateSel: e.detail.value
     })
+  }
+
+  saveDataHandler = data => {
+    this.closeModal()
+    this.props.onAddRecordDataHandler(data)
+  }
+  closeModal = () => {
+    this.setState({
+      isShowModal: false
+    })
+    this.props.onAddModalClose()
   }
   // onSubmit () {
   //   console.log(this.state)
@@ -146,7 +153,7 @@ export class AddRecord extends React.PureComponent<IProps>  {
           </View>
           <View className="dialogFooter" style={isReactAdd ? "display:block" : "display:none"}>
             <View className="button" onClick={() => this.handleAddReact()} >重新录音</View>
-            <View className="button active" onClick={() => this.onSubmit()}>确认新增</View>
+            <View className="button active" onClick={() =>{ this.saveDataHandler(this.state) }}>确认新增</View>
           </View>
 
         </View>

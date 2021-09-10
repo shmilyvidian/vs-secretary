@@ -3,7 +3,7 @@ import { View ,Text} from '@tarojs/components'
 import { CardList } from '@/components/CardList'
 import { EmptyView } from '@/components/EmptyView'
 import classNames from 'classnames'
-
+import store from "@/store/index";
 type cardDataType = {
   isActive:boolean
   date: string
@@ -28,6 +28,8 @@ export class Card extends React.PureComponent<IProps> {
   // 卡片点选事件
   onActive = (item,index) => {
     this.props.onActiveEvent(item,index)
+    const { homeStore } = store
+    homeStore.userInfo.closeAddContentFN && homeStore.userInfo.closeAddContentFN()
   }
   toggle = ()=>{
   }

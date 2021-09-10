@@ -1,6 +1,7 @@
 import React, { useState, useEffect,Fragment } from "react";
 import { View ,Text,Image} from '@tarojs/components'
 import create from '@/assets/images/create.svg'
+import store from "@/store/index";
 
 interface IProps {
   currentAddIndex: number | undefined;
@@ -16,12 +17,11 @@ export const AddContent = React.memo(({ currentAddIndex, callback,isCloseModal }
     const reverseIsShow = !isShow
     setIsShow(reverseIsShow);
 };
+const closeAddContentFN = ()=>{
+  setIsShow(false)
+}
+store.homeStore.setCloseAddContentFN(closeAddContentFN)
 
-  useEffect(() => {
-    // 手动关闭modal
-    isCloseModal && showRemindBox()
-
-  }, [isCloseModal])
 
   const showAddNoticeModal =(type) =>{
     setTabIndex(type)
