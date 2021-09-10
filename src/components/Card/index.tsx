@@ -45,7 +45,7 @@ export class Card extends React.PureComponent<IProps> {
                     <Text className="date">{item.date}</Text>
                     <Text className="total">{item.dataList.length}个{item.type=="record"?"提醒事项":"会议"}</Text>
                   </View>
-                  <CardList cardListData={item.dataList} type={item.type} isActive={item.isActive}/>
+                  <CardList cardListData={item.dataList} type={item.type} isActive={item.isActive} itemKey={item.date}/>
                 </View>
               )
             }) : <EmptyView text='啊哦，还没有数据快去新建一个吧' />

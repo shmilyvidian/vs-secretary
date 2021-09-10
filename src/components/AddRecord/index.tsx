@@ -99,7 +99,7 @@ export class AddRecord extends React.PureComponent<IProps>  {
                 <Text className="label">日期：</Text>
                 <Picker mode='date' onChange={this.onDateChange}>
                   <AtList>
-                    <AtListItem extraText={this.state.recordDate} />
+                    <AtListItem extraText={this.state.dateSel} />
                   </AtList>
                 </Picker>
               </View>
@@ -107,7 +107,7 @@ export class AddRecord extends React.PureComponent<IProps>  {
                 <Text className="label">时间：</Text>
                 <Picker mode='time' onChange={this.onTimeChange}>
                   <AtList>
-                    <AtListItem extraText={this.state.recordTime} />
+                    <AtListItem extraText={this.state.timeSel} />
                   </AtList>
                 </Picker>
               </View>

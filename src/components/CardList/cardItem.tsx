@@ -7,11 +7,16 @@ import textActive from '@/assets/images/TextActive.png'
 import meeting from '@/assets/images/meeting.png'
 import meetingActive from '@/assets/images/meetingActive.png'
 import deleteIcon from '@/assets/images/delete.svg'
+import { observer, MobXProviderContext } from "mobx-react";
+
+import store from "@/store/index";
+
 interface IProps {
     data: any
     key: number
     isActive: boolean
     type: string
+    parentKey:string
 }
 
 export class CardItem extends React.PureComponent<IProps> {
@@ -43,6 +48,13 @@ export class CardItem extends React.PureComponent<IProps> {
       showDelete: !this.state.showDelete
     })
   }
+  deleteItems = (item,parentKey) => {
+    const { homeStore } = store
+    this.setState({
+      showDelete: !this.state.showDelete
+    })
+    homeStore.userInfo.delNoticeFN && homeStore.userInfo.delNoticeFN(item,parentKey)
+  }
   // /// 按钮触摸开始触发的事件
   // touchStart= (e)=>{
   //   this.state.showDelete = false
@@ -50,7 +62,7 @@ export class CardItem extends React.PureComponent<IProps> {
   // onTouchStart={this.touchStart.bind(this,data,key)
   
     render() {
-      const { data,key,isActive,type} = this.props
+      const { data,key,isActive,type,parentKey} = this.props
       let { showDelete } = this.state
       return (
         <View className="item" key={key} onLongPress={this.longTap.bind(this,data,key)}>
@@ -61,7 +73,7 @@ export class CardItem extends React.PureComponent<IProps> {
               {data.name}
             </View>
             <Image src={type=="meeting"?"":data.iconType =="record" ? isActive ? recordActive: record : isActive?textActive: text} className={data.iconType =="record"? 'record' : 'textIcon'} />
-              <View className="deleteBox" style={showDelete? "display:block":"display:none"}>
+              <View className="deleteBox" style={showDelete? "display:block":"display:none"} onClick={this.deleteItems.bind(this, data,parentKey)}>
                 <Image src={deleteIcon} className="deleteIcon" />
               </View>
           </View>

@@ -5,6 +5,7 @@ type UserTypes = {
     nickname: String
     sex: number | undefined
     modalIndex: number
+    delNoticeFN:Function|null
 
 }
 
@@ -13,11 +14,13 @@ class HomeStore {
         nickname: '',
         sex: undefined,
         modalIndex: 0,
+        delNoticeFN:null
     }
     @observable recordData: UserTypes = {
         nickname: '',
         sex: undefined,
         modalIndex: 0,
+        delNoticeFN:null,
     }
 
     @action setChoices = (index:number) => {
@@ -28,6 +31,9 @@ class HomeStore {
     }
     @action setModalIndex = (index:number) => {
         this.userInfo.modalIndex = index
+    }
+    @action setDelNoticeFN = (fn:Function)=>{
+        this.userInfo.delNoticeFN =fn
     }
 
     @computed get isDoneSign () {
