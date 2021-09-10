@@ -41,7 +41,7 @@ export const IndexMain = styled(View)`
     }
     .remindItem_Box{
         width:686px;
-        height:360px;
+        height:auto;
         margin-top:32px;
         padding:32px;
         border-radius: 8px;
@@ -93,7 +93,7 @@ export const IndexMain = styled(View)`
                     overflow:hidden;
                     white-space:nowrap;
                     text-overflow:ellipsis;
-                    &:before{
+                    .textBefore{
                         position:absolute;
                         left:0;
                         top:34px;
@@ -106,6 +106,15 @@ export const IndexMain = styled(View)`
                         content:"";
                     }
                 }
+                .time{
+                    float:left;
+                    line-height:78px;
+                    font-family: PingFangSC-Semibold;
+                    font-size: 32px;
+                    color: #2E1C14;;
+                    margin-right:-12px;
+                    margin-left:12px;
+                }
                 .record{
                     display:inline-block;
                     float:left;
@@ -114,6 +123,14 @@ export const IndexMain = styled(View)`
                     width:19px;
                     height:28px;
                  }
+                .textIcon{
+                    display:inline-block;
+                    float:left;
+                    margin-top:28px;
+                    margin-left:15px;
+                    width:21px;
+                    height:28px;
+                }
                 .meeting{
                     display:inline-block;
                     float:left;
@@ -122,6 +139,7 @@ export const IndexMain = styled(View)`
                     width:21px;
                     height:28px;
                 }
+  
                 .deleteBox{
                     position:absolute;
                     top:0;
@@ -157,11 +175,14 @@ export const IndexMain = styled(View)`
                 .item{
                     .text{
                         color:#FFFFFF
-                        &:before{
+                        .textBefore{
                             background: #FFFFFF;
                             box-shadow: 0 2px 4px 0 rgba(255,118,53,0.45);
                          
                         }
+                    }
+                    .time{
+                        color: #FFFFFF;
                     }
                     .record{
                         color:#FFFFFF;
@@ -281,6 +302,33 @@ export const IndexMain = styled(View)`
                     font-size: 28px;
                     color: #000000;
                 }
+                .at-list{
+                    background:none
+                    &::after{
+                        border:none
+                    }
+                    .at-list__item {
+                        padding:22px 0 0 104px;
+                        color:#333;
+                        font-size:28px;
+                        transition:none;
+                        border:none;
+                    }
+                    .at-list__item::after{
+                        border:none
+                    }
+                    .at-list__item-content{
+                        display:none
+                    }
+                    .at-list__item-extra {
+                         font-weight:normal
+                    }
+                    .at-list__item .item-extra__info {
+                        color:#333;
+                        font-size:28px;
+                        font-weight: normal;
+                    }
+                }
                 .input{
                     padding-left:104px;
                     box-sizing:border-box;
@@ -288,6 +336,19 @@ export const IndexMain = styled(View)`
                     line-height:88px;
                     font-size: 28px;
                     color: #C4B4AC;
+                    &.at-input{
+                        background:none
+                        border:none;
+                        margin-left:0;
+                        margin-bottom:0;
+                        padding:18px 0 18px 104px;
+                        input{
+                            font-size:28px;
+                        }
+                    }
+                    &.at-input::after{
+                        border:none
+                    }
                 }
             }
             .textarea{
@@ -295,8 +356,12 @@ export const IndexMain = styled(View)`
                 width:100%;
                 height:314px;
                 background: #F9F9F9;
+                border:none;
                 border-radius: 8px;
                 box-sizing:border-box;
+                .at-textarea__textarea {
+                    height:230px
+                }
                 &.text{
                     height:auto;
                     font-size: 28px;

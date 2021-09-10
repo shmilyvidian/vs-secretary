@@ -13,10 +13,12 @@ type cardListDataType = {
   name: string
   iconType: string
   showDelete: boolean
+  time: string
 }
 interface IProps {
   cardListData?: cardListDataType[]
   isActive: boolean 
+  type: string
 }
 export class CardList extends React.PureComponent<IProps> {
   constructor(IProps) {
@@ -88,7 +90,7 @@ export class CardList extends React.PureComponent<IProps> {
     })
   }
   render(){
-    const { cardListData = [],isActive } = this.props;
+    const { cardListData = [],isActive,type} = this.props;
     console.log(cardListData,'vs',this.props)
     return(
       <View className="list">
@@ -96,7 +98,7 @@ export class CardList extends React.PureComponent<IProps> {
         cardListData.length ?
         cardListData.map((item: cardListDataType, index: any) => {
             return (
-              <CardItem data={item} key={index} isActive={isActive} />
+              <CardItem data={item} key={index} type={type} isActive={isActive} />
             )
           }) : <EmptyView text='啊哦，还没有数据快去新建一下吧' />
       }

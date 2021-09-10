@@ -14,6 +14,11 @@ class HomeStore {
         sex: undefined,
         modalIndex: 0,
     }
+    @observable recordData: UserTypes = {
+        nickname: '',
+        sex: undefined,
+        modalIndex: 0,
+    }
 
     @action setChoices = (index:number) => {
         this.userInfo.sex = index

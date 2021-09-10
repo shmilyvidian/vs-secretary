@@ -7,7 +7,7 @@ import classNames from 'classnames'
 type cardDataType = {
   isActive:boolean
   date: string
-  total: string
+  type: string
   dataList: Array<any>
 }
 type stateType = {
@@ -43,9 +43,9 @@ export class Card extends React.PureComponent<IProps> {
                 <View className={classNames('remindItem_Box', item.isActive ?'active':'')} key={index} onClick={this.onActive.bind(this,item,index)}>
                   <View className="title">
                     <Text className="date">{item.date}</Text>
-                    <Text className="total">{item.total}</Text>
+                    <Text className="total">{item.dataList.length}个{item.type=="record"?"提醒事项":"会议"}</Text>
                   </View>
-                  <CardList cardListData={item.dataList} isActive={item.isActive}/>
+                  <CardList cardListData={item.dataList} type={item.type} isActive={item.isActive}/>
                 </View>
               )
             }) : <EmptyView text='啊哦，还没有数据快去新建一个吧' />

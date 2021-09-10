@@ -1,14 +1,17 @@
 import React from 'react'
 import { View,Text,Image } from '@tarojs/components'
 import record from '@/assets/images/record.png'
-import meeting from '@/assets/images/text.png'
 import recordActive from '@/assets/images/recordActive.png'
-import meetingActive from '@/assets/images/TextActive.png'
+import text from '@/assets/images/text.png'
+import textActive from '@/assets/images/TextActive.png'
+import meeting from '@/assets/images/meeting.png'
+import meetingActive from '@/assets/images/meetingActive.png'
 import deleteIcon from '@/assets/images/delete.svg'
 interface IProps {
     data: any
     key: number
     isActive: boolean
+    type: string
 }
 
 export class CardItem extends React.PureComponent<IProps> {
@@ -47,12 +50,17 @@ export class CardItem extends React.PureComponent<IProps> {
   // onTouchStart={this.touchStart.bind(this,data,key)
   
     render() {
-      const { data,key,isActive} = this.props
+      const { data,key,isActive,type} = this.props
       let { showDelete } = this.state
       return (
         <View className="item" key={key} onLongPress={this.longTap.bind(this,data,key)}>
-            <Text className="text">{data.name}</Text>
-            <Image src={data.iconType =="record" ? isActive ? recordActive: record : isActive?meetingActive: meeting} className={data.iconType =="record"? 'record' : 'meeting'} />
+            {data.time?<Image src={isActive? meeting:meetingActive} className="meeting"></Image>:null}
+            <Text className="time">{data.time}</Text>
+            <View className="text">
+              {type=="record"?<Text className="textBefore"></Text>:null}
+              {data.name}
+            </View>
+            <Image src={type=="meeting"?"":data.iconType =="record" ? isActive ? recordActive: record : isActive?textActive: text} className={data.iconType =="record"? 'record' : 'textIcon'} />
               <View className="deleteBox" style={showDelete? "display:block":"display:none"}>
                 <Image src={deleteIcon} className="deleteIcon" />
               </View>

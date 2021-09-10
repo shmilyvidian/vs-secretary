@@ -52,11 +52,10 @@ const Index = observer(() => {
   const store = useStoreData()
   const [currentTabIndex, setTabIndex] = useState<number>(0)
   const [currentAddIndex, setAddIndex] = useState<number>(0)
+  const [isCloseModal, setIsCloseModal] = useState<boolean>(false) // 是否手动关闭modal
   const [ currentRemindCardData, setRemindCardData] = useState<Array<any>>(remindCardData)
-  const [ currentMeetingCardData, setMeetingCardData] = useState<Array<any>>([])
-  const [ idList, setIdList] = useState<Array<any>>([])
+  const [ currentMeetingCardData, setMeetingCardData] = useState<Array<any>>(meetingCardData)
   const onClickTab = (currentTabIndex: number) => {
-    console.log(333)
     setTabIndex(currentTabIndex)
   };
   const onClickAdd = (currentAddIndex: number) => {
@@ -65,12 +64,18 @@ const Index = observer(() => {
 
   };
   const activeEvent = (item,cur)=>{
-    const newData =currentRemindCardData.map((item,index)=>{
+    const newRecordData =currentRemindCardData.map((item,index)=>{
       item.isActive = false;
       if(index == cur) item.isActive = true
       return item
     })
-    setRemindCardData(newData)
+    const newMeetingData =currentMeetingCardData.map((item,index)=>{
+      item.isActive = false;
+      if(index == cur) item.isActive = true
+      return item
+    })
+    setRemindCardData(newRecordData)
+    setMeetingCardData(newMeetingData)
   }
   // tab内容区渲染
   const renderTabContent = () => {
@@ -84,31 +89,75 @@ const Index = observer(() => {
   const renderAddContent = () =>{
     return <AddContent
       currentAddIndex={currentAddIndex}
+      isCloseModal={isCloseModal}
       callback={onClickAdd}
     />
   }
-  const searchId = (currentNode): void =>{
-    let nowList: string[] = idList;
-    nowList.push(currentNode.uid);
-    setIdList(nowList)
-    if (currentNode.childNodes.length) {
-        for (let i = 0; i < currentNode.childNodes.length; i++) {
-            searchId(currentNode.childNodes[i])
-        }
+//   const searchId = (currentNode): void =>{
+//     let nowList: string[] = idList;
+//     nowList.push(currentNode.uid);
+//     setIdList(nowList)
+//     debugger
+//     if (currentNode.childNodes.length) {
+//         for (let i = 0; i < currentNode.childNodes.length; i++) {
+//             searchId(currentNode.childNodes[i])
+//         }
+//     }
+// }
+  // const cancel = (e) =>{
+  //   // searchId(e)
+  //   // console.log(e,'xxx');
+  //     if (!idList.includes(e.target.id)) {
+  //         // console.log('ok'); 
+  //     }
+  // }
+
+   // 新增文本提醒事项
+   const onAddTextDataHandler = (data) => {
+
+    const getDate = date => {
+      var now = new Date(date),
+        m = ("0" + (now.getMonth() + 1)).slice(-2),
+        d = ("0" + now.getDate()).slice(-2);
+      return m + "月" + d + "日"
     }
-}
-  const cancel = (e) =>{
-    console.log(2);
-  console.log(e);
-      if (!idList.includes(e.target.id)) {
-          console.log('ok'); // 里面执行符合条件的方法，最常见的就是关闭小窗口
+
+    // 转换添加的数据日期
+    const dateStr = getDate(data.dateSel)
+
+    const newRemindCardData = [...currentRemindCardData]
+    const noticeItem = {
+      name: data.noticeName || '',
+      iconType: 'text'
+    }
+    let inCurrentGrop = false
+    newRemindCardData.forEach(item => {
+      item.isActive = false
+      if (item.date === dateStr) {
+        inCurrentGrop = true
+        const newChildList = [...item.dataList]
+        newChildList.unshift(noticeItem)
+        item.dataList = newChildList
       }
+    })
+    // 如果在当前分组日期内直接插入数组，否则新增一个日期分组
+    if (!inCurrentGrop) {
+      newRemindCardData.unshift({
+        id: Date.parse(new Date()).toString(),
+        date: dateStr,
+        type: "record",
+        isActive: true,
+        dataList: [noticeItem]
+      })
+    }
+    setRemindCardData(newRemindCardData)
+    setIsCloseModal(true)
   }
 
   // modal弹窗区渲染
   const renderModalContent = () =>{
     if (currentAddIndex === ModalStatus.addTextStatus) {
-      return <AddText/>;
+      return <AddText onAddTextDataHandler={onAddTextDataHandler.bind(this)} onAddModalClose={onAddModalClose.bind(this)} />;
     } else if (currentAddIndex === ModalStatus.addRecordStatus) {
       return <AddRecord/>;
     } else if (currentAddIndex === ModalStatus.checkTextStatus) {
@@ -117,15 +166,16 @@ const Index = observer(() => {
       return <CheckRecord/>;
     } 
   }
+  const onAddModalClose =()=>{
+    onClickAdd(0)
+  }
   return (
-    <View onClick={cancel}>
-    <IndexMain>
+    <IndexMain> 
       <TabBar currentTabIndex={currentTabIndex} callback={onClickTab}/>
       {renderTabContent()}
-      {renderAddContent()}
+      {currentTabIndex === CardStatus.remindStatus? renderAddContent():null}
       {renderModalContent()}
     </IndexMain>
-    </View>
   )
 })
 

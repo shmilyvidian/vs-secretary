@@ -2,7 +2,7 @@ const remindCardData = [
   {
     id:"1",
     date: "08月09日",
-    total: "5个提醒事项",
+    type: "record",
     isActive: true,
     dataList: [
       {
@@ -37,7 +37,7 @@ const remindCardData = [
   {
     id:"2",
     date: "08月10日",
-    total: "5个提醒事项",
+    type: "record",
     isActive: false,
     dataList: [
       {
@@ -65,7 +65,7 @@ const remindCardData = [
   {
     id:"3",
     date: "08月11日",
-    total: "6个提醒事项",
+    type: "record",
     dataList: [
       {
         name:'跟领导汇报调研报告2',
@@ -97,53 +97,75 @@ const remindCardData = [
 const meetingCardData = [
   {
     date: "08月09日",
-    total: "6个提醒事项",
+    type: "meeting",
+    isActive: true,
     dataList: [
       {
-        name:'跟领导汇报调研报告',
-        iconType:'text',
+        time:'16:40',
+        name:'需求澄清',
+        iconType:'meeting',
+        status:'done'
       },
       {
-        name:'跟领导汇报调研报告',
-        iconType:'record',
+        time:'16:40',
+        name:'需求澄清需求澄清需求澄清需求澄清',
+        iconType:'meeting',
+        status:'done'
       },
       {
-        name:'跟领导汇报调研报告',
-        iconType:'text',
+        time:'16:40',
+        name:'需求澄清需求澄清',
+        iconType:'meeting',
+        status:'done'
       },
       {
-        name:'跟领导汇报调研报告',
-        iconType:'record',
+        time:'16:40',
+        name:'需求澄清',
+        iconType:'meeting',
+        status:'done'
       },
       {
-        name:'跟领导汇报调研报告',
-        iconType:'text',
+        time:'16:40',
+        name:'需求澄清',
+        iconType:'meeting',
+        status:'done'
       }
     ],
   },
   {
     date: "08月10日",
-    total: "3个提醒事项",
+    type: "meeting",
+    isActive: false,
     dataList: [
       {
-        name:'跟领导汇报调研报告2',
-        iconType:'text',
+        time:'16:40',
+        name:'需求澄清',
+        iconType:'meeting',
+        status:'done'
       },
       {
-        name:'跟领导汇报调研报告',
-        iconType:'record',
+        time:'16:40',
+        name:'需求澄清需求澄清',
+        iconType:'meeting',
+        status:'done'
       },
       {
-        name:'跟领导汇报调研报告',
-        iconType:'text',
+        time:'16:40',
+        name:'需求澄清需求澄清',
+        iconType:'meeting',
+        status:'done'
       },
       {
-        name:'跟领导汇报调研报告',
-        iconType:'record',
+        time:'16:40',
+        name:'需求澄清',
+        iconType:'meeting',
+        status:'done'
       },
       {
-        name:'跟领导汇报调研报告',
-        iconType:'text',
+        time:'16:40',
+        name:'需求澄清',
+        iconType:'meeting',
+        status:'done'
       }
     ],
   },

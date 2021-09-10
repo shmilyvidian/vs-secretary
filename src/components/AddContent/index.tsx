@@ -4,10 +4,11 @@ import create from '@/assets/images/create.svg'
 
 interface IProps {
   currentAddIndex: number | undefined;
+  isCloseModal: Boolean;
   callback: (currentAddIndex: number) => void;
 }
 
-export const AddContent = React.memo(({ currentAddIndex, callback }: IProps) => {
+export const AddContent = React.memo(({ currentAddIndex, callback,isCloseModal }: IProps) => {
   const [tabs, setTabs] = useState<number>()
   const [addIndex, setTabIndex] = useState<number | undefined>(currentAddIndex)
   const [isShow, setIsShow] = useState(false);
@@ -17,19 +18,27 @@ export const AddContent = React.memo(({ currentAddIndex, callback }: IProps) => 
 };
 
   useEffect(() => {
+    // 手动关闭modal
+    isCloseModal && showRemindBox()
+
+  }, [isCloseModal])
+
+  const showAddNoticeModal =(type) =>{
+    setTabIndex(type)
     setTabs(tabs)
-    typeof callback === "function" && callback.call(null, addIndex);
-  }, [addIndex])
+    typeof callback === "function" && callback.call(null, type);
+  }
+
   return (
     <Fragment>
     <View className="remindBox" id="remindBox" style={isShow? "display:block":"display:none"}>
       <View className="remindText" 
-        onClick={() => setTabIndex(1)}
+        onClick={() => showAddNoticeModal(1)}
       >
         <Text>文本提醒事项</Text>
       </View>
       <View className="remindVoice" 
-        onClick={() => setTabIndex(2)}
+        onClick={() => showAddNoticeModal(2)}
       >
         <Text>语音提醒事项</Text>
       </View>

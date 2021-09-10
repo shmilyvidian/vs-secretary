@@ -4,7 +4,7 @@ import { Provider } from 'mobx-react'
 import store from './store'
 
 import './app.scss'
-
+import 'taro-ui/dist/style/index.scss'
 class App extends React.Component {
   render () {
     return (
