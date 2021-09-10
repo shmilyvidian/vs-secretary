@@ -11,7 +11,7 @@ type cardDataType = {
   dataList: Array<any>
 }
 type stateType = {
-  isflod: boolean
+
 }
 interface IProps {
     cardData?: cardDataType[]
@@ -23,7 +23,7 @@ export class Card extends React.PureComponent<IProps> {
     super(IProps)
   }
   state={
-    isflod:false
+
   } as stateType
   // 卡片点选事件
   onActive = (item,index) => {
@@ -34,7 +34,6 @@ export class Card extends React.PureComponent<IProps> {
 
   render() {
     const { cardData = [] } = this.props    
-    let { isflod } = this.state   
     return (
       <View>
         {
@@ -46,7 +45,7 @@ export class Card extends React.PureComponent<IProps> {
                     <Text className="date">{item.date}</Text>
                     <Text className="total">{item.total}</Text>
                   </View>
-                  <CardList cardListData={item.dataList}/>
+                  <CardList cardListData={item.dataList} isActive={item.isActive}/>
                 </View>
               )
             }) : <EmptyView text='啊哦，还没有数据快去新建一个吧' />

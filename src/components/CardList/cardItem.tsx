@@ -1,12 +1,14 @@
 import React from 'react'
 import { View,Text,Image } from '@tarojs/components'
-import activeImg from '@/assets/images/test.jpeg'
+import record from '@/assets/images/record.png'
+import meeting from '@/assets/images/text.png'
 import recordActive from '@/assets/images/recordActive.png'
 import meetingActive from '@/assets/images/TextActive.png'
 import deleteIcon from '@/assets/images/delete.svg'
 interface IProps {
     data: any
     key: number
+    isActive: boolean
 }
 
 export class CardItem extends React.PureComponent<IProps> {
@@ -45,12 +47,12 @@ export class CardItem extends React.PureComponent<IProps> {
   // onTouchStart={this.touchStart.bind(this,data,key)
   
     render() {
-      const { data,key} = this.props
+      const { data,key,isActive} = this.props
       let { showDelete } = this.state
       return (
         <View className="item" key={key} onLongPress={this.longTap.bind(this,data,key)}>
             <Text className="text">{data.name}</Text>
-            <Image src={data.iconType =="record" ? recordActive : meetingActive} className={data.iconType =="record"? 'record' : 'meeting'} />
+            <Image src={data.iconType =="record" ? isActive ? recordActive: record : isActive?meetingActive: meeting} className={data.iconType =="record"? 'record' : 'meeting'} />
               <View className="deleteBox" style={showDelete? "display:block":"display:none"}>
                 <Image src={deleteIcon} className="deleteIcon" />
               </View>

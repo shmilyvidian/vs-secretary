@@ -1,6 +1,7 @@
 import React, { useState, useEffect,Component } from "react";
 import { View,Input,Text, Image } from '@tarojs/components'
 import { observer, MobXProviderContext } from "mobx-react";
+import Taro,{Events} from '@tarojs/taro'
 
 //样式
 import store from "@/store/index";
@@ -53,7 +54,9 @@ const Index = observer(() => {
   const [currentAddIndex, setAddIndex] = useState<number>(0)
   const [ currentRemindCardData, setRemindCardData] = useState<Array<any>>(remindCardData)
   const [ currentMeetingCardData, setMeetingCardData] = useState<Array<any>>([])
+  const [ idList, setIdList] = useState<Array<any>>([])
   const onClickTab = (currentTabIndex: number) => {
+    console.log(333)
     setTabIndex(currentTabIndex)
   };
   const onClickAdd = (currentAddIndex: number) => {
@@ -84,6 +87,24 @@ const Index = observer(() => {
       callback={onClickAdd}
     />
   }
+  const searchId = (currentNode): void =>{
+    let nowList: string[] = idList;
+    nowList.push(currentNode.uid);
+    setIdList(nowList)
+    if (currentNode.childNodes.length) {
+        for (let i = 0; i < currentNode.childNodes.length; i++) {
+            searchId(currentNode.childNodes[i])
+        }
+    }
+}
+  const cancel = (e) =>{
+    console.log(2);
+  console.log(e);
+      if (!idList.includes(e.target.id)) {
+          console.log('ok'); // 里面执行符合条件的方法，最常见的就是关闭小窗口
+      }
+  }
+
   // modal弹窗区渲染
   const renderModalContent = () =>{
     if (currentAddIndex === ModalStatus.addTextStatus) {
@@ -97,12 +118,14 @@ const Index = observer(() => {
     } 
   }
   return (
+    <View onClick={cancel}>
     <IndexMain>
       <TabBar currentTabIndex={currentTabIndex} callback={onClickTab}/>
       {renderTabContent()}
       {renderAddContent()}
       {renderModalContent()}
     </IndexMain>
+    </View>
   )
 })
 

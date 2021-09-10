@@ -403,12 +403,16 @@ export const IndexMain = styled(View)`
                     height:12px;
                     background: rgba(196,180,172,0.40);
                     border-radius: 6px;
-                    .play{
+                    .circle{
+                        display:inline-block;
                         position:absolute;
                         left:0;
-                        top:-6px;
+                        top:-8px;
                         width:28px;
                         height:28px;
+                        border-radius:50%;
+                        background: #FF7635;
+                        box-shadow: 0 4px 6px 0 rgba(255,118,53,0.40);
                     }
                 }
                 .videoBottomLeft{

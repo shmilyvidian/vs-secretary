@@ -22,7 +22,7 @@ export const AddContent = React.memo(({ currentAddIndex, callback }: IProps) => 
   }, [addIndex])
   return (
     <Fragment>
-    <View className="remindBox" style={isShow? "display:block":"display:none"}>
+    <View className="remindBox" id="remindBox" style={isShow? "display:block":"display:none"}>
       <View className="remindText" 
         onClick={() => setTabIndex(1)}
       >

@@ -107,7 +107,7 @@ export class AddRecord extends React.PureComponent<IProps>  {
                     </View>
                     <View className="videoBottom">
                       <View className="progress">
-                        <Image src={play} className="play" />
+                        <Image src="" className="circle" />
                       </View>
                       <Text className="videoBottomLeft">00:00</Text>
                       <Text className="videoBottomRight">29:51</Text>
