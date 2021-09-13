@@ -96,7 +96,7 @@ export class CardItem extends React.PureComponent<IProps> {
               {data.name}
             </View>
             <Image src={type=="meeting"?"":data.iconType =="record" ? isActive ? recordActive: record : isActive?textActive: text} className={data.iconType =="record"? 'record' : 'textIcon'} />
-              <View className="deleteBox" style={type=="meeting"?null:showDelete? "display:block":"display:none"} onClick={this.deleteItems.bind(this, data,parentKey)}>
+              <View className="deleteBox" style={showDelete? "display:block":"display:none"} onClick={this.deleteItems.bind(this, data,parentKey)}>
                 <Image src={deleteIcon} className="deleteIcon" />
               </View>
           </View>
