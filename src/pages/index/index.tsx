@@ -6,35 +6,14 @@ import Taro,{Events} from '@tarojs/taro'
 //样式
 import store from "@/store/index";
 import { IndexMain } from './indexSty'
-//图片
-import record from '@/assets/images/record.png'
-import meeting from '@/assets/images/Text.png'
-import recordActive from '@/assets/images/recordActive.png'
-import meetingActive from '@/assets/images/TextActive.png'
-import deleteIcon from '@/assets/images/delete.svg'
-import close from '@/assets/images/close.svg'
-import copytext from '@/assets/images/copytext.svg'
-import share from '@/assets/images/share.svg'
-import download from '@/assets/images/download.svg'
 //组件
 import { TabBar } from '@/components/TarBar/index';
 import { Card } from '@/components/Card/index';
 import { AddContent } from '@/components/AddContent/index';
 import { AddText } from '@/components/AddText/index';
 import { AddRecord } from '@/components/AddRecord/index';
-
+//数据源
 import { remindCardData,meetingCardData } from './mockData'
-
-function useStores() {
-  return React.useContext(MobXProviderContext)
-}
-function useStoreData() {
-  const { store } = useStores()
-  return {
-    commonStore: store.commonStore,
-    homeStore: store.homeStore,
-  }
-}
 
 export enum CardStatus {
   remindStatus = 0,
@@ -45,6 +24,16 @@ export enum ModalStatus {
   addRecordStatus = 2,
   checkTextStatus = 3,
   checkRecordStatus = 4,
+}
+function useStores() {
+  return React.useContext(MobXProviderContext)
+}
+function useStoreData() {
+  const { store } = useStores()
+  return {
+    commonStore: store.commonStore,
+    homeStore: store.homeStore,
+  }
 }
 
 const Index = observer(() => {
@@ -91,11 +80,7 @@ const Index = observer(() => {
     })
     setRemindCardData(newData)
   }
-
   store.homeStore.setDelNoticeFN(delNoticeFN)
-
-
-
 
   // tab内容区渲染
   const renderTabContent = () => {
@@ -113,35 +98,16 @@ const Index = observer(() => {
       callback={onClickAdd}
     />
   }
-//   const searchId = (currentNode): void =>{
-//     let nowList: string[] = idList;
-//     nowList.push(currentNode.uid);
-//     setIdList(nowList)
-//     debugger
-//     if (currentNode.childNodes.length) {
-//         for (let i = 0; i < currentNode.childNodes.length; i++) {
-//             searchId(currentNode.childNodes[i])
-//         }
-//     }
-// }
-  // const cancel = (e) =>{
-  //   // searchId(e)
-  //   // console.log(e,'xxx');
-  //     if (!idList.includes(e.target.id)) {
-  //         // console.log('ok'); 
-  //     }
-  // }
 
    // 新增文本提醒事项
    const onAddTextDataHandler = (data) => {
-
+    // 转换添加的数据日期
     const getDate = date => {
       var now = new Date(date),
         m = ("0" + (now.getMonth() + 1)).slice(-2),
         d = ("0" + now.getDate()).slice(-2);
       return m + "月" + d + "日"
     }
-    // 转换添加的数据日期
     const dateStr = getDate(data.dateSel)
 
     const newRemindCardData = [...currentRemindCardData]
@@ -177,15 +143,16 @@ const Index = observer(() => {
   // 新建语音提示事项
   const onAddRecordDataHandler = (data) => {
 
+    // 转换添加的数据日期
     const getDate = date => {
       var now = new Date(date),
         m = ("0" + (now.getMonth() + 1)).slice(-2),
         d = ("0" + now.getDate()).slice(-2);
       return m + "月" + d + "日"
     }
-    // 转换添加的数据日期
     const dateStr = getDate(data.dateSel)
 
+    //定义新建语音数据格式
     const newRemindCardData = [...currentRemindCardData]
     const noticeItem = {
       name:data.recordTheme || '',
@@ -203,7 +170,7 @@ const Index = observer(() => {
         item.isActive = true
       }
     })
-    // 如果在当前分组日期内直接插入数组，否则新增一个日期分组
+    // 如果在当前分组日期内直接插入 数组，否则新增一个日期分组
     if (!inCurrentGrop) {
       newRemindCardData.unshift({
         id: Date.parse(new Date()).toString(),
@@ -217,7 +184,7 @@ const Index = observer(() => {
     setIsCloseModal(true)
   }
 
-  // modal弹窗区渲染
+  // Modal弹窗区渲染
   const renderModalContent = () =>{
     if (currentAddIndex === ModalStatus.addTextStatus) {
       return <AddText onAddTextDataHandler={onAddTextDataHandler.bind(this)} onAddModalClose={onAddModalClose.bind(this)} />;
@@ -225,6 +192,7 @@ const Index = observer(() => {
       return <AddRecord onAddRecordDataHandler={onAddRecordDataHandler.bind(this)} onAddModalClose={onAddModalClose.bind(this)} />;
     } 
   }
+  //关闭Modal
   const onAddModalClose =()=>{
     onClickAdd(0)
   }
