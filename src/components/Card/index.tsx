@@ -26,7 +26,8 @@ export class Card extends React.PureComponent<IProps> {
 
   } as stateType
   // 卡片点选事件
-  onActive = (item,index) => {
+  onActive = (item,index,e) => {
+    e.stopPropagation();
     this.props.onActiveEvent(item,index)
     const { homeStore } = store
     homeStore.userInfo.closeAddContentFN && homeStore.userInfo.closeAddContentFN()

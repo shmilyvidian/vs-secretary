@@ -46,18 +46,22 @@ export class CardItem extends React.PureComponent<IProps> {
   }
   /// 长按
   longTap = (item, index, e)=>{
+    e.stopPropagation();
     this.setState({
       showDelete: !this.state.showDelete
     })
   }
-  deleteItems = (item,parentKey) => {
+  deleteItems = (item,parentKey,e) => {
+    console.log('e',e)
+    console.log('par',parentKey);
+    e.stopPropagation();
     const { homeStore } = store
     this.setState({
       showDelete: !this.state.showDelete
     })
     homeStore.userInfo.delNoticeFN && homeStore.userInfo.delNoticeFN(item,parentKey)
   }
-  handlerCheck = () => {
+  handlerCheck = (e) => {
     this.setState({
       isShowCheck: !this.state.isShowCheck
     })
@@ -92,7 +96,7 @@ export class CardItem extends React.PureComponent<IProps> {
               {data.name}
             </View>
             <Image src={type=="meeting"?"":data.iconType =="record" ? isActive ? recordActive: record : isActive?textActive: text} className={data.iconType =="record"? 'record' : 'textIcon'} />
-              <View className="deleteBox" style={showDelete? "display:block":"display:none"} onClick={this.deleteItems.bind(this, data,parentKey)}>
+              <View className="deleteBox" style={type=="meeting"?null:showDelete? "display:block":"display:none"} onClick={this.deleteItems.bind(this, data,parentKey)}>
                 <Image src={deleteIcon} className="deleteIcon" />
               </View>
           </View>

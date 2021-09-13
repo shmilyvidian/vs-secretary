@@ -396,7 +396,7 @@ export const IndexMain = styled(View)`
                 &.content{
                     padding:24px;
                     height:auto;
-                    max-height:640px;
+                    max-height:630px;
                     font-family: PingFangSC-Regular;
                     font-size: 30px;
                     color: #93796D;

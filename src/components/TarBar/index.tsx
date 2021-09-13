@@ -23,7 +23,7 @@ export const TabBar = React.memo(({ currentTabIndex, callback }: IProps) => {
         <View className="tabItem_GBox">
           <View 
             className={classNames('tabItem', currentTabIndex === 0 ?'active':'')}
-            onClick={() => setTabIndex(0)}
+            onClick={(e) =>{ e.stopPropagation();setTabIndex(0)}}
           >
              <Text>提 醒</Text>
            </View>
