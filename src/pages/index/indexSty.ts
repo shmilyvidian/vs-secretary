@@ -357,7 +357,8 @@ export const IndexMain = styled(View)`
                         border:none
                     }
                     .at-list__item {
-                        padding:22px 0 0 104px;
+                        padding:22px 0 22px 0;
+                        margin-left:104px;
                         color:#333;
                         font-size:28px;
                         transition:none;
