@@ -92,7 +92,6 @@ export class CardList extends React.PureComponent<IProps> {
   }
   render(){
     const { cardListData = [],isActive,type,itemKey} = this.props;
-    console.log(cardListData,'vs',this.props)
     return(
       <View className="list">
       {

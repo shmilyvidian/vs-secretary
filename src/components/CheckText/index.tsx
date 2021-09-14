@@ -14,6 +14,7 @@ type checkDataType = {
 }
 interface IProps {
   checkData?: any
+  onCheckModalClose:()=>void
 }
 
 export class CheckText extends React.PureComponent<IProps>  {
@@ -27,6 +28,7 @@ export class CheckText extends React.PureComponent<IProps>  {
     this.setState({
       isShowModal: false
     })
+    this.props.onCheckModalClose()
   }
 
   render() {

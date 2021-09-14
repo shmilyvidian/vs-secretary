@@ -28,7 +28,7 @@ export class AddRecord extends React.PureComponent<IProps>  {
     isAdding: false,
     isReactAdd: false,
     recordTheme: '',
-    dateSel: new Date().getFullYear() + '-' + (new Date().getMonth() + 1) + '-' + new Date().getDate(),
+    dateSel: (new Date().getMonth() + 1) + '-' + new Date().getDate(),
     timeSel: new Date().getHours() + ':' + new Date().getMinutes(),
   }
   handleAdd = () => {

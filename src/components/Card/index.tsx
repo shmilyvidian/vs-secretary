@@ -37,16 +37,22 @@ export class Card extends React.PureComponent<IProps> {
 
   render() {
     const { cardData = [] } = this.props    
+    // console.log('beforefilter',cardData)
+    // let cindex = cardData.findIndex(item=>{
+    //   item.dataList
+    // })
+    // console.log('xx',cardData,cindex)
+
     return (
       <View>
         {
           cardData.length ?
-            cardData.map((item: cardDataType, index: number) => {
+            cardData.map((item: cardDataType, index: number,arr) => {
               return (
                 <View className={classNames('remindItem_Box', item.isActive ?'active':'')} key={index} onClick={this.onActive.bind(this,item,index)}>
                   <View className="title">
                     <Text className="date">{item.date}</Text>
-                    <Text className="total">{item.dataList.length}个{item.type=="record"?"提醒事项":"会议"}</Text>
+                    <Text className="total">{item.dataList.length}个{item.type=="remind"?"提醒事项":"会议"}</Text>
                   </View>
                   <CardList cardListData={item.dataList} type={item.type} isActive={item.isActive} itemKey={item.date}/>
                 </View>

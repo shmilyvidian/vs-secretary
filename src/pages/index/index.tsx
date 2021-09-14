@@ -67,7 +67,7 @@ const Index = observer(() => {
   }
 
   const delNoticeFN =(data,parentKey) => {
-    const newData = currentRemindCardData.map(item=>{
+    const newData = currentRemindCardData.map((item,index,arr)=>{
       if(item.date === parentKey ){
         const childItemIndex = item.dataList.findIndex(f=>f.id === data.id)
         if(childItemIndex>-1){
@@ -78,7 +78,17 @@ const Index = observer(() => {
       }
       return item
     })
-    setRemindCardData(newData)
+  
+    let newCardData = newData.filter(item=>{
+      if(item.dataList.length != 0) return item
+    })
+    const hasActive = newCardData.some(item=>{
+      if(item.isActive == true) return true
+    })
+    if(!hasActive){
+      newCardData[0].isActive = true
+    }
+    setRemindCardData(newCardData)
   }
   store.homeStore.setDelNoticeFN(delNoticeFN)
 
@@ -109,11 +119,15 @@ const Index = observer(() => {
       return m + "月" + d + "日"
     }
     const dateStr = getDate(data.dateSel)
-
     const newRemindCardData = [...currentRemindCardData]
     const noticeItem = {
-      name: data.noticeName || '',
-      iconType: 'text'
+      id:"6",
+      name:data.noticeName || '',
+      iconType:'text',
+      showDelete: false,
+      content:data.noticeTextarea,
+      time:data.timeSel,
+      date:getDate(data.dateSel)
     }
     let inCurrentGrop = false
     newRemindCardData.forEach(item => {
@@ -131,7 +145,7 @@ const Index = observer(() => {
       newRemindCardData.unshift({
         id: Date.parse(new Date()).toString(),
         date: dateStr,
-        type: "record",
+        type: "remind",
         isActive: true,
         dataList: [noticeItem]
       })
@@ -151,13 +165,15 @@ const Index = observer(() => {
       return m + "月" + d + "日"
     }
     const dateStr = getDate(data.dateSel)
-
+    console.log('dd',data)
     //定义新建语音数据格式
     const newRemindCardData = [...currentRemindCardData]
     const noticeItem = {
+      date:data.dateSel || '',
+      time:data.timeSel || '',
       name:data.recordTheme || '',
-      iconType:'meeting',
-      status:'done'
+      iconType:'record',
+      status:'ing'
     }
     let inCurrentGrop = false
     newRemindCardData.forEach(item => {
@@ -175,7 +191,7 @@ const Index = observer(() => {
       newRemindCardData.unshift({
         id: Date.parse(new Date()).toString(),
         date: dateStr,
-        type: "meeting",
+        type: "remind",
         isActive: true,
         dataList: [noticeItem]
       })

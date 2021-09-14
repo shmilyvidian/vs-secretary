@@ -52,8 +52,6 @@ export class CardItem extends React.PureComponent<IProps> {
     })
   }
   deleteItems = (item,parentKey,e) => {
-    console.log('e',e)
-    console.log('par',parentKey);
     e.stopPropagation();
     const { homeStore } = store
     this.setState({
@@ -61,22 +59,25 @@ export class CardItem extends React.PureComponent<IProps> {
     })
     homeStore.userInfo.delNoticeFN && homeStore.userInfo.delNoticeFN(item,parentKey)
   }
-  handlerCheck = (e) => {
+  handlerCheck = () => {
     this.setState({
-      isShowCheck: !this.state.isShowCheck
+      isShowCheck: true
+    })
+  }
+  onCheckModalClose = () => {
+    this.setState({
+      isShowCheck: false
     })
   }
   
   renderCheckModal = () => {
-    const { data } = this.props
+    const { data,key} = this.props
     if ( data.iconType== "text") {
-      return <CheckText checkData={data} />;
+      return <CheckText checkData={data} onCheckModalClose={this.onCheckModalClose.bind(this)} key={key}  />;
     } else if(data.iconType== "record"){
-      return <CheckRecord checkData={data}/>;
+      return <CheckRecord checkData={data} onCheckModalClose={this.onCheckModalClose.bind(this)} key={key}/>;
     } 
   }
-
-
   // /// 按钮触摸开始触发的事件
   // touchStart= (e)=>{
   //   this.state.showDelete = false
@@ -87,19 +88,23 @@ export class CardItem extends React.PureComponent<IProps> {
       const { data,key,isActive,type,parentKey} = this.props
       let { showDelete,isShowCheck } = this.state
       return (
-        <View className="item" key={key} onLongPress={this.longTap.bind(this,data,key)} onClick={this.handlerCheck.bind(this)}>
+        <React.Fragment>
           {isShowCheck?this.renderCheckModal():null}
-            {type=="meeting"?<Image src={isActive? meeting:meetingActive} className="meeting"></Image>:null}
-            {type=="remind"?null:<Text className="time">{data.time}</Text>}
-            <View className="text">
-              {type=="remind"?<Text className="textBefore"></Text>:null}
-              {data.name}
-            </View>
-            <Image src={type=="meeting"?"":data.iconType =="record" ? isActive ? recordActive: record : isActive?textActive: text} className={data.iconType =="record"? 'record' : 'textIcon'} />
-              <View className="deleteBox" style={showDelete? "display:block":"display:none"} onClick={this.deleteItems.bind(this, data,parentKey)}>
-                <Image src={deleteIcon} className="deleteIcon" />
+
+          <View className="item" key={key} onLongPress={type=="remind"?this.longTap.bind(this,data,key):null} onClick={type=="remind"?this.handlerCheck.bind(this):null} style={data.status && data.status =="done"?"opacity:.5":"opacity:1"}>
+              {type=="meeting"?<Image src={isActive? meeting:meetingActive} className="meeting"></Image>:null}
+              {type=="remind"?null:<Text className="time">{data.time}</Text>}
+              <View className="text">
+                {type=="remind"?<Text className="textBefore"></Text>:null}
+                {data.name}
               </View>
-          </View>
+              <Image src={type=="meeting"?"":data.iconType =="record" ? isActive ? recordActive: record : isActive?textActive: text} className={data.iconType =="record"? 'record' : 'textIcon'} />
+                <View className="deleteBox" style={showDelete? "display:block":"display:none"} onClick={this.deleteItems.bind(this, data,parentKey)}>
+                  <Image src={deleteIcon} className="deleteIcon" />
+                </View>
+              <View className="done" style={data.status =="done"?"display:block":"display:none"}>已结束</View>
+            </View>
+          </React.Fragment>
       )
     }
 }

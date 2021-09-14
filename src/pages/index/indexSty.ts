@@ -16,6 +16,8 @@ export const IndexMain = styled(View)`
     box-sizing:border-box;
     ${center}
     .tabItem_GBox{
+        position:fixed;
+        top:0;
         width:686px;
         height:98px;
         line-height:48px;
@@ -23,6 +25,7 @@ export const IndexMain = styled(View)`
         background:rgba(249,249,249,1);
         ${center}
         flex-direction:row;
+        z-index:3;
     }
     .tabItem{
         width:330px;
@@ -41,7 +44,7 @@ export const IndexMain = styled(View)`
     }
     .remindItem_Box{
         width:686px;
-        height:auto;
+        height:345px;
         margin-top:32px;
         padding:32px;
         border-radius: 8px;
@@ -49,6 +52,9 @@ export const IndexMain = styled(View)`
         background-image:none;
         box-sizing:border-box;
         overflow:hidden;
+        &:first-child{
+            margin-top:130px;
+        }
         .title{
             width:100%;
             height:38px;
@@ -139,6 +145,20 @@ export const IndexMain = styled(View)`
                     width:21px;
                     height:28px;
                 }
+                .done{
+                    position:absolute;
+                    top:22px;
+                    right:0;
+                    width:96px;
+                    height:38px;
+                    text-align:center;
+                    border-radius:4px;
+                    font-size: 24px;
+                    line-height: 38px;  
+                    z-index:4;
+                    color:#93796D;
+                    background:rgba(196,180,172,.2);
+                }
   
                 .deleteBox{
                     position:absolute;
@@ -171,8 +191,13 @@ export const IndexMain = styled(View)`
             .total{
                 color:#FFFFFF
             }
+ 
             .list{
                 .item{
+                    .done{
+                        color: #FFFFFF;
+                        background:rgba(255,255,255,.3);
+                    }
                     .text{
                         color:#FFFFFF
                         .textBefore{
@@ -491,6 +516,15 @@ export const IndexMain = styled(View)`
                     width:38px;
                     height:38px;
                 }
+                .switchText{
+                    display:inline-block;
+                    position:absolute;
+                    top:25px;
+                    right:105px;
+                    width:38px;
+                    height:38px;
+                    z-index:3;
+                }
               
             }
             .videoBottom{
@@ -540,6 +574,21 @@ export const IndexMain = styled(View)`
                 }
             }
         }
+        .videoSwitch{
+            padding:24px;
+            height:auto;
+            max-height:391px;
+            font-family: PingFangSC-Regular;
+            font-size: 30px;
+            color: #93796D;
+            text-align: justify;
+            line-height: 40px;
+            overflow:hidden;
+            box-sizing:border-box;
+            background: #F9F9F9;
+            border-radius: 8rpx;
+            margin-top:24px;
+        }
         .dialogFooter{
             position:absolute;
             bottom:32px;
@@ -561,12 +610,13 @@ export const IndexMain = styled(View)`
                 border-radius: 8px;
             }
             .button{
+                position:relative;
                 float:left;
                 width:276px;
                 height:76px;
                 margin-right:24px;
                 line-height:76px;
-                border: 1px solid #FF7635;
+                border: 2px solid #FF7635;
                 border-radius: 8px;
                 box-sizing:border-box;
                 font-size: 28px;
@@ -578,6 +628,15 @@ export const IndexMain = styled(View)`
                 &.active{
                     color:#FFFFFF;
                     background: #FF7635;
+                }
+                &.share{
+                    left:50%;
+                    margin-left:-138px;
+
+                    background:#FFFFFF;
+                }
+                &::after{
+                    border:none
                 }
                 .copytext{
                     position:relative;

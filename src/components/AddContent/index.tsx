@@ -21,9 +21,8 @@ const closeAddContentFN = ()=>{
   setIsShow(false)
 }
 store.homeStore.setCloseAddContentFN(closeAddContentFN)
-
-
   const showAddNoticeModal =(type) =>{
+    setIsShow(false)
     setTabIndex(type)
     setTabs(tabs)
     typeof callback === "function" && callback.call(null, type);

@@ -17,7 +17,7 @@ export class AddText extends React.PureComponent<IProps>  {
   state = {
     isShowModal: true,
     noticeName: '',
-    dateSel: new Date().getFullYear() + '-' + (new Date().getMonth() + 1) + '-' + new Date().getDate(),
+    dateSel: (new Date().getMonth() + 1) + '-' + new Date().getDate(),
     timeSel: new Date().getHours() + ':' + new Date().getMinutes(),
     noticeTextarea: '',
   }

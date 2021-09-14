@@ -34,7 +34,7 @@ export function EmptyView(props:IProps){
     return (
         <View className={emptyView}>
             {/* <Image className={empty_img} src={imgUrl || empty} /> */}
-            <Text className={empty_text}>{text}</Text>
+            <Text className={empty_text} style="color:#ffffff">{text}</Text>
         </View>
     )
 }
