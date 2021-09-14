@@ -1,6 +1,6 @@
 export default {
   pages: [
-    'pages/index/index'
+    'pages/index/index',
   ],
   // 分包
   // subPackages: [
