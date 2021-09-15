@@ -2,7 +2,7 @@
   "miniprogramRoot": "./",
   "projectname": "vs-secretary",
   "description": "secretary",
-  "appid": "touristappid",
+  "appid": "wx300f63f2d86eed20",
   "setting": {
     "urlCheck": true,
     "es6": false,
