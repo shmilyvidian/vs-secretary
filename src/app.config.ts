@@ -1,7 +1,7 @@
 export default {
   pages: [
-    'pages/search/index',
-    'pages/index/index'
+    'pages/index/index',
+    'pages/search/index'
   ],
   // 分包
   // subPackages: [
@@ -11,8 +11,8 @@ export default {
   // ],
   window: {
     backgroundTextStyle: 'light',
-    navigationBarBackgroundColor: '#fff',
+    navigationBarBackgroundColor: '#F9612A',
     navigationBarTitleText: 'WeChat',
-    navigationBarTextStyle: 'black'
+    navigationBarTextStyle: 'white'
   }
 }
