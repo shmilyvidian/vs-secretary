@@ -157,6 +157,7 @@ class Index extends Component {
           color='#ACACAC'
           selectedColor='#F9612A'
         />
+
       </IndexMain>
     )
   }
