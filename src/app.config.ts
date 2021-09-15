@@ -1,5 +1,6 @@
 export default {
   pages: [
+    'pages/search/index',
     'pages/index/index'
   ],
   // 分包
