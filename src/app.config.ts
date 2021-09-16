@@ -1,18 +1,22 @@
 export default {
   pages: [
-    'pages/search/index',
-    'pages/index/index'
+    'pages/index/index',
   ],
   // 分包
-  // subPackages: [
-  //   {
-      
-  //   }
-  // ],
+  subPackages: [
+    {
+      "root": 'pages/resumeInfo',
+      "pages": ["index"]
+    },
+    {
+      "root": 'pages/mine',
+      "pages": ["index"]
+    }
+  ],
   window: {
     backgroundTextStyle: 'light',
-    navigationBarBackgroundColor: '#fff',
+    navigationBarBackgroundColor: '#F9612A',
     navigationBarTitleText: 'WeChat',
-    navigationBarTextStyle: 'black'
+    navigationBarTextStyle: 'white'
   }
 }
