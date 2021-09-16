@@ -13,7 +13,6 @@ import share from '@/assets/share.png'
 import female from '@/assets/female.png'
 
 import { gennerateTaroNavigateParams } from '@/utils/urlParam'
-
 import detailStore  from '@/store/resumeDetails'
 
 
@@ -52,7 +51,17 @@ class Resume extends Component {
         Taro.navigateTo(gennerateTaroNavigateParams('resumeInfo', {}))
         Taro.setNavigationBarTitle({
             title: '简历助手'
-          });
+        });
+    }
+    addResume(){
+        Taro.navigateTo(gennerateTaroNavigateParams('resumeAdd', {}))
+        Taro.setNavigationBarTitle({
+            title: '简历助手'
+        });
+        Taro.setNavigationBarColor({
+            frontColor: '#000000',
+            backgroundColor: '#FFFFFF',
+        })
     }
     render() {
         return (
@@ -60,7 +69,7 @@ class Resume extends Component {
                 <View className='resume__container'>
                     <View className="header__search">
                         <view className="search__name" onClick={this.handleJobTypeClick.bind(this, true)}>产品经理</view>
-                        <view className="search__icon_down">ˇ</view>
+                        <view className="search__icon_down" onClick={this.handleJobTypeClick.bind(this, true)}>ˇ</view>
                         <AtActionSheet isOpened={this.state.showJobType} cancelText='取消'>
                             <AtActionSheetItem onClick={this.handleJobTypeClick.bind(this, false)}>
                                 产品经理
@@ -96,7 +105,7 @@ class Resume extends Component {
                                 <AtButton size='small'>5年经验</AtButton>
                             </AtBadge>
 
-                            <AtIcon value='add-circle' size='26' color='#F9612A'></AtIcon>
+                            <AtIcon value='add-circle' size='26' color='#F9612A'  onClick={this.addResume.bind(this)}></AtIcon>
                         </view>
                     </View>
 

@@ -2,6 +2,15 @@ import { styled } from 'linaria/react'
 import { View } from '@tarojs/components'
 
 export const IndexMain = styled(View)`
+.share{
+    background:none;
+    border:none;
+    outline:none;
+    text-align:left;
+    &::after{
+        display:none
+    }
+}
 background:#F6F6F6
 .header__search{
     height:100pt; 

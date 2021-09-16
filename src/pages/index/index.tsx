@@ -57,7 +57,11 @@ class Index extends Component {
           break;
       case 1:
           Taro.redirectTo({
-              url: `/pages/pinglun/index`
+              url: `/pages/resumeUpload/index`
+          })
+          Taro.setNavigationBarColor({
+            frontColor: '#000000',
+            backgroundColor: '#FFFFFF',
           })
           break;
       case 2:

@@ -55,8 +55,12 @@ class ResumeInfo extends Component {
                         <View className='at-col at-col-7'>
                             <Text className="text__score">7.8</Text>
                         </View>
+               
                         <View className='at-col at-col-3 img__share'>
-                            <AtAvatar image={share}></AtAvatar>
+                            <Button className="button share" open-type="share">
+                                <AtAvatar image={share}></AtAvatar>
+                            </Button>
+
                         </View>
                     </View>
 

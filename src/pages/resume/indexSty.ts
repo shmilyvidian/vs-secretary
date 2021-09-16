@@ -2,9 +2,9 @@ import { styled } from 'linaria/react'
 import { View } from '@tarojs/components'
 
 export const IndexMain = styled(View)`
-.resume__container{
-    background:#F6F6F6;
-}
+    .resume__container{
+        background:#F6F6F6;
+    }
   .header__search{
     height:100pt; 
     background:#F9612A;
@@ -50,6 +50,7 @@ export const IndexMain = styled(View)`
 
         .search__icon__{
             margin-top:-17pt;
+            z-index:3;
             icon{
                 position:absolute;
                 margin-left:15pt;
