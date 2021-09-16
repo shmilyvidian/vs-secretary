@@ -8,7 +8,7 @@ import Taro from '@tarojs/taro'
 import male from '@/assets/male.png'
 import grade from '@/assets/grade.png'
 import like from '@/assets/like.png'
-import download from '@/assets/download.png'
+import download from '@/assets/downloadOrange.png'
 import share from '@/assets/share.png'
 import female from '@/assets/female.png'
 
@@ -109,7 +109,7 @@ class Resume extends Component {
                                     <AtAvatar image={male}></AtAvatar>
                                 </View>
                                 <View className='at-col at-col-2'>
-                                    <AtAvatar image={grade}></AtAvatar>
+                                    <AtAvatar image={grade} className="icon__grade"></AtAvatar>
                                 </View>
                                 <View className='at-col at-col-1'>
                                     <Text className="text__score">7.8</Text>
@@ -129,7 +129,7 @@ class Resume extends Component {
                                     <View className='at-row'>
                                         <View className='at-col at-col-8'>有数据思维</View>
                                         <View className='at-col at-col-2'><AtAvatar image={like}></AtAvatar></View>
-                                        <View className='at-col at-col-2 text__count'>29</View>
+                                        <View className='at-col at-col-1 text__count'>29</View>
                                     </View>
                                 </AtTag>
                                 <AtTag>
@@ -180,7 +180,7 @@ class Resume extends Component {
                                     <AtAvatar image={male}></AtAvatar>
                                 </View>
                                 <View className='at-col at-col-2'>
-                                    <AtAvatar image={grade}></AtAvatar>
+                                    <AtAvatar image={grade} className="icon__grade"></AtAvatar>
                                 </View>
                                 <View className='at-col at-col-1'>
                                     <Text className="text__score">8.2</Text>
@@ -225,7 +225,7 @@ class Resume extends Component {
                                     <AtAvatar image={female}></AtAvatar>
                                 </View>
                                 <View className='at-col at-col-2'>
-                                    <AtAvatar image={grade}></AtAvatar>
+                                    <AtAvatar image={grade} className="icon__grade"></AtAvatar>
                                 </View>
                                 <View className='at-col at-col-1'>
                                     <Text className="text__score">8.5</Text>

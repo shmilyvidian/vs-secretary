@@ -20,10 +20,11 @@ export const IndexMain = styled(View)`
     }
     .search__icon_down{
         font-size:18pt;
-        padding-top:6pt;
+        padding-top:12pt;
         color:#fff;
         float:left;
-        line-height:44pt;
+        line-height:36pt;
+        margin-left:-2pt;
     }
    
     .search__input{
@@ -32,6 +33,9 @@ export const IndexMain = styled(View)`
         .at-search-bar{
             background-color:#F9612A;
         }
+        .at-input::after {
+            display:none
+        }
         .at-input{
             margin-left:74pt;
             border-radius: 32px;
@@ -39,16 +43,16 @@ export const IndexMain = styled(View)`
             margin-top:6pt;
 
             .at-input__input{
-                margin-top:-6pt;
-                margin-left:22pt;
+                margin-top:-5pt;
+                margin-left:24pt;
             }
         }
 
         .search__icon__{
-            margin-top:-18pt;
+            margin-top:-17pt;
             icon{
                 position:absolute;
-                margin-left:14pt;
+                margin-left:15pt;
             }
         }
     }
@@ -95,6 +99,18 @@ export const IndexMain = styled(View)`
         padding-left:0pt;
         padding-right:0pt;
         padding-bottom:0pt;
+        .card__footer {
+            border-top:1px solid rgba(172,172,172,0.20);
+            .col__download{
+                border-right:1px solid rgba(172,172,172,0.20)
+            }
+            .col__download:last-child{
+                .content-inner__text{
+                    color:#FFB935
+                }
+            }
+        }
+
     }
     .text_name{
         font-family: PingFangSC-Semibold;
@@ -106,12 +122,19 @@ export const IndexMain = styled(View)`
     .at-avatar{
         background:#fff;
         width:12pt;
-        height:22pt;
+        height:23pt;
         position:relative;
         top:-4pt;
         left:6pt;
         .at-avatar__img{
             height:12pt;
+        }
+        &.icon__grade{
+            .at-avatar__img{
+                position:relative;
+                top:2pt;
+                height:15pt;
+            }
         }
     }
     .text__score{
@@ -133,6 +156,7 @@ export const IndexMain = styled(View)`
             line-height:10pt;
             color: #ACACAC;
             margin-top:8pt;
+            font-size:32rpx
         }
     }
     
@@ -141,14 +165,17 @@ export const IndexMain = styled(View)`
     }
 
     .tags__2{
+        .at-tag{
+            padding:0 38rpx 0 32rpx;
+        }
         padding-left:8pt;
         padding-right:8px;
         color: #878787;
         margin-top:12pt;
         .at-avatar{
             height:14pt;
-            margin-left:-2pt;
-            margin-top:3pt;
+            margin-left:-3pt;
+            margin-top:4.5pt;
             background-color:#F7F7F7;
 
             .at-avatar__img{
@@ -192,6 +219,6 @@ export const IndexMain = styled(View)`
             }
         }
     }
-
 }
+
 `

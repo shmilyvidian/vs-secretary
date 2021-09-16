@@ -2,10 +2,11 @@ import { styled } from 'linaria/react'
 import { View } from '@tarojs/components'
 
 export const IndexMain = styled(View)`
-
+background:#F6F6F6
 .header__search{
     height:100pt; 
     background:#F9612A;
+    
     .details{
         padding-top:8pt;
         padding-left:12pt;
@@ -14,11 +15,22 @@ export const IndexMain = styled(View)`
         height:16pt;
         width:15pt;
         margin-left:14pt;
-       }
+        background:none
+        &.media {
+            margin-top:1pt;
+            .at-avatar__img{
+                width:12pt;
+            }
+        }
+        &.add{
+            width:16pt;
+        }
+    }
    .at-avatar__img{
     height:14pt;
     width:14pt;
     transform:translateY(-6pt);
+   
    }
    .text__score{
     color:#fff;
@@ -37,9 +49,11 @@ export const IndexMain = styled(View)`
    }
 }
 
+
 .card{
     margin-top:-26pt;
     padding: 6pt 2pt;
+    
   .at-card__header{
       display:none;
   }
@@ -47,6 +61,7 @@ export const IndexMain = styled(View)`
       padding-left:8pt;
   }
   .at-card{
+      border:none;
       margin-bottom:8pt;
   }
   .at-card__content{
@@ -72,6 +87,15 @@ export const IndexMain = styled(View)`
       .at-avatar__img{
           height:12pt;
       }
+      &.add{
+          width:16pt;
+          height:16pt
+          top:0pt;
+          .at-avatar__img{
+              float:left;
+              height:16pt;
+          }
+      }
   }
 
   .tags__2{
@@ -81,13 +105,13 @@ export const IndexMain = styled(View)`
     margin-top:12pt;
     .at-avatar{
         height:14pt;
-        margin-left:-2pt;
-        margin-top:3pt;
+        margin-left:-3pt;
+        margin-top:4.5pt;
         background-color:#F7F7F7;
 
         .at-avatar__img{
-            height:10pt;
-            width:10pt;
+            height:9pt;
+            width:9pt;
             transform:translateY(-8pt);
         }
     }

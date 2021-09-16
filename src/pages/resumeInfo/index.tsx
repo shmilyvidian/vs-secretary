@@ -5,10 +5,11 @@ import detailStore from '@/store/resumeDetails'
 
 import { IndexMain } from './indexSty'
 
-import grade from '@/assets/grade.png'
-import share from '@/assets/share.png'
+import grade from '@/assets/gradeWhite.png'
+import share from '@/assets/shareWhite.png'
 import like from '@/assets/like.png'
 import download from '@/assets/download.png'
+import add from '@/assets/addOrange.png'
 
 type stateType = {
     showAddTags: boolean,
@@ -49,7 +50,7 @@ class ResumeInfo extends Component {
                             {details.name}
                         </View>
                         <View className='at-col at-col-1 img__grade'>
-                            <AtAvatar image={grade}></AtAvatar>
+                            <AtAvatar image={grade} className="media"></AtAvatar>
                         </View>
                         <View className='at-col at-col-7'>
                             <Text className="text__score">7.8</Text>
@@ -71,7 +72,7 @@ class ResumeInfo extends Component {
                                 <view className="text_tags">标签：</view>
                             </View>
                             <View className='at-col at-col-2' onClick={this.addTags.bind(this, true)}>
-                                <AtAvatar image={grade} ></AtAvatar>
+                                <AtAvatar image={add} className="add" ></AtAvatar>
                             </View>
                         </View>
 
@@ -99,7 +100,7 @@ class ResumeInfo extends Component {
                             </AtTag>
 
                             <AtTag >
-                                <View className='at-row'>
+                                <View className='at-row active'>
                                     <View className='at-col at-col-8'>交互经验丰富</View>
                                     <View className='at-col at-col-2'><AtAvatar image={like}></AtAvatar></View>
                                     <View className='at-col at-col-2 text__count'>19</View>
