@@ -9,6 +9,8 @@ import { AtButton,AtTabBar,AtNavBar,AtList, AtListItem,AtTag} from 'taro-ui'
 import add from '@/assets/add.png'
 import download from '@/assets/download.png'
 
+import { gennerateTaroNavigateParams } from '@/utils/urlParam'
+
 import Resume from '../resume/index' 
 
 type propsType = {
@@ -59,9 +61,10 @@ class Index extends Component {
           })
           break;
       case 2:
-          Taro.redirectTo({
-              url: `/pages/yindao/index`
-          })
+          // Taro.redirectTo({
+          //     url: `/pages/mine/index`
+          // })
+          Taro.navigateTo(gennerateTaroNavigateParams('mine', {}))
           Taro.setNavigationBarTitle({
             title: '我的'
           });

@@ -1,14 +1,18 @@
 export default {
   pages: [
     'pages/index/index',
-    'pages/search/index'
   ],
   // 分包
-  // subPackages: [
-  //   {
-      
-  //   }
-  // ],
+  subPackages: [
+    {
+      "root": 'pages/resumeInfo',
+      "pages": ["index"]
+    },
+    {
+      "root": 'pages/mine',
+      "pages": ["index"]
+    }
+  ],
   window: {
     backgroundTextStyle: 'light',
     navigationBarBackgroundColor: '#F9612A',

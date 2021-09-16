@@ -3,6 +3,8 @@ import { View, Icon, Text } from '@tarojs/components'
 import { AtActionSheet, AtActionSheetItem, AtInput, AtBadge, AtButton, AtIcon, AtCard, AtAvatar, AtTag, AtGrid } from "taro-ui"
 import { IndexMain } from './indexSty'
 
+import Taro from '@tarojs/taro'
+
 import male from '@/assets/male.png'
 import grade from '@/assets/grade.png'
 import like from '@/assets/like.png'
@@ -10,7 +12,9 @@ import download from '@/assets/download.png'
 import share from '@/assets/share.png'
 import female from '@/assets/female.png'
 
+import { gennerateTaroNavigateParams } from '@/utils/urlParam'
 
+import detailStore  from '@/store/resumeDetails'
 
 
 type stateType = {
@@ -23,7 +27,6 @@ interface Resume {
     state: stateType,
 }
 class Resume extends Component {
-
     constructor(props) {
         super(props)
         this.state = {
@@ -41,7 +44,16 @@ class Resume extends Component {
     onSearchChange() {
 
     }
-
+    onViewResumeInfo(name,score) {
+        detailStore.setResumeDetail({
+            name,
+            score
+        })
+        Taro.navigateTo(gennerateTaroNavigateParams('resumeInfo', {}))
+        Taro.setNavigationBarTitle({
+            title: '简历助手'
+          });
+    }
     render() {
         return (
             <IndexMain>
@@ -89,7 +101,7 @@ class Resume extends Component {
                     </View>
 
                     <view className="card">
-                        <AtCard>
+                        <AtCard onClick={this.onViewResumeInfo.bind(this, '张三','7.8')}>
 
                             <View className='at-row'>
                                 <View className='at-col at-col-9'>
@@ -160,7 +172,7 @@ class Resume extends Component {
                             </View>
                         </AtCard>
 
-                        <AtCard>
+                        <AtCard  onClick={this.onViewResumeInfo.bind(this, '李四','8.2')}>
 
                             <View className='at-row'>
                                 <View className='at-col at-col-9'>
@@ -205,7 +217,7 @@ class Resume extends Component {
                             </View>
                         </AtCard>
 
-                        <AtCard>
+                        <AtCard onClick={this.onViewResumeInfo.bind(this, '王五五','8.5')}>
 
                             <View className='at-row'>
                                 <View className='at-col at-col-9'>
@@ -250,9 +262,6 @@ class Resume extends Component {
                             </View>
                         </AtCard>
                     </view>
-
-
-
                 </View>
             </IndexMain>
         )

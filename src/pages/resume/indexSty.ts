@@ -89,6 +89,7 @@ export const IndexMain = styled(View)`
     }
     .at-card{
         margin-bottom:8pt;
+        border:none;
     }
     .at-card__content{
         padding-left:0pt;
