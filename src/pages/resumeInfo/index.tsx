@@ -105,7 +105,7 @@ class ResumeInfo extends Component {
 
                             <AtTag >
                                 <View className='at-row active'>
-                                    <View className='at-col at-col-8'>交互经验丰富</View>
+                                    <View className='at-col at-col-9'>交互经验丰富</View>
                                     <View className='at-col at-col-2'><AtAvatar image={like}></AtAvatar></View>
                                     <View className='at-col at-col-2 text__count'>19</View>
                                 </View>
@@ -165,22 +165,6 @@ class ResumeInfo extends Component {
                         </view>
                     </AtCard>
                 </view>
-
-
-                <AtModal isOpened={this.state.showAddTags}>
-                    <AtModalHeader>创建标签</AtModalHeader>
-                    <AtModalContent>
-                        <AtInput
-                            name='value'
-                            type='text'
-                            placeholder='请输入标签，最多可添加8个'
-                            value={this.state.value}
-                            onChange={this.handleChange.bind(this)}
-                        />
-                    </AtModalContent>
-                    <AtModalAction>
-                        <Button onClick={this.addTags.bind(this, false)}>取消</Button> <Button onClick={this.addTags.bind(this, false)}>确定</Button> </AtModalAction>
-                </AtModal>
 
             </IndexMain>
         )

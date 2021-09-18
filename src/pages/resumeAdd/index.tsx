@@ -73,18 +73,13 @@ class ResumeAdd extends Component {
       Taro.setNavigationBarColor({
         frontColor: '#000000',
         backgroundColor: '#FFFFFF',
-    })
+      })
   }
   
     render() {
+      const details = detailStore.searchDetail
         return (
-            <IndexMain>
-              <ScrollView className='month-calendar-container'
-                scrollX
-                scrollWithAnimation
-                style='height: 100%;'
-                onScrollToLower={this.onScrollToLower}
-                >
+            <IndexMain style="background:#ffffff">
                 <View className="addTitle">添加简历</View>
                 <View className="addNode">填写求职者基本信息，简历详细信息请上传简历附件</View>
                 <View style="width:100%">
@@ -102,7 +97,7 @@ class ResumeAdd extends Component {
                     </Picker>
                       <AtList>
 
-                        <AtListItem title='岗位类型' extraText={this.state.station}  arrow='right' onClick={this.onSearch.bind(this, '张三','7.8')}/>
+                        <AtListItem title='岗位类型' extraText={details.searchValue}  arrow='right' onClick={this.onSearch.bind(this, '张三','7.8')}/>
 
                       </AtList>
                   </AtList>
@@ -158,7 +153,20 @@ class ResumeAdd extends Component {
                   </View>
                 </View>
 
-                <AtModal isOpened={this.state.showAddTags}>
+                <View className="card">
+                  <View className="title">
+                    <Text>简历附件</Text>
+                    <Image src={add} className="add" />
+                  </View>
+                  <View className="resume"> 
+                    <View className="tag">
+                      <Text>张三的简历.docx</Text>
+                      <Image src={download} className={download}/>
+                    </View>
+                  </View>
+                </View>
+
+                {/* <AtModal isOpened={this.state.showAddTags}>
                     <AtModalHeader>创建标签</AtModalHeader>
                     <AtModalContent>
                         <AtInput
@@ -171,19 +179,9 @@ class ResumeAdd extends Component {
                     </AtModalContent>
                     <AtModalAction>
                         <Button onClick={this.addTags.bind(this, false)}>取消</Button> <Button onClick={this.addTags.bind(this, false)}>确定</Button> </AtModalAction>
-                </AtModal>
+                </AtModal> */}
 
-                <AtModal isOpened={this.state.showModal}>
-                    <AtModalHeader>创建标签</AtModalHeader>
-                    <AtModalContent>
-                      <View>复制链接到浏览器后，上传简历</View>
-                    </AtModalContent>
-                    <AtModalAction>
-                        <Button onClick={this.onScrollToLower.bind(this, false)}>复制</Button>
-                    </AtModalAction>
-                </AtModal>
-                </ScrollView>
-
+      
             </IndexMain>
         )
     }

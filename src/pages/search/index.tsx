@@ -6,6 +6,8 @@ import { CommonStore } from '@/store/commonStore'
 import Taro, { Config } from '@tarojs/taro'
 import { AtButton,AtTabBar,AtNavBar,AtList, AtListItem,AtTag,AtModal,AtModalHeader, AtModalContent, AtModalAction,AtSearchBar} from 'taro-ui'
 import './indexSty.scss'
+import detailStore  from '@/store/resumeDetails'
+import { gennerateTaroNavigateParams } from '@/utils/urlParam'
 
 type propsType = {
   store: {
@@ -74,11 +76,24 @@ class Search extends Component {
   onClick (){
     return;
   }
-  onChangeSearch (){
-    return;
+  onChangeSearch (value){
+    this.setState({
+      searchValue:value
+    })
   }
   onActionClick (){
-    return;
+    detailStore.setSearchDetail({
+      searchValue : this.state.searchValue
+  })
+    Taro.navigateTo(gennerateTaroNavigateParams('resumeAdd', {}))
+    Taro.setNavigationBarTitle({
+        title: '简历助手'
+    });
+    Taro.setNavigationBarColor({
+      frontColor: '#000000',
+      backgroundColor: '#FFFFFF',
+  })
+
   }
 
   
@@ -157,18 +172,29 @@ class Search extends Component {
                 <View className="item">C++</View>
               </View>
             </View>
+            <View className="items">
+              <View className="title">C#开发</View>
+              <View className="children">
+                <View className="item">Java</View>
+                <View className="item">C++</View>
+                <View className="item">Java</View>
+                <View className="item">C++</View>
+              </View>
+            </View>
+            <View className="items">
+              <View className="title">C#开发</View>
+              <View className="children">
+                <View className="item">Java</View>
+                <View className="item">C++</View>
+                <View className="item">Java</View>
+                <View className="item">C++</View>
+              </View>
+            </View>
           </View>
         </View>
  
 
-        {/* <AtModal isOpened>
-          <AtModalContent>
-              <View>复制链接到浏览器后，上传简历</View>
-          </AtModalContent>
-          <AtModalAction>
-            <Button>复制</Button>
-          </AtModalAction>
-        </AtModal>       */}
+      
         {/* <AtTabBar fixed tabList={[
             { title: '简历', iconType: 'home'},
             { title: '上传', iconType: 'upload' },

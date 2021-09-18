@@ -2,13 +2,14 @@ import { styled } from 'linaria/react'
 import { View } from '@tarojs/components'
 
 export const IndexMain = styled(View)`
-    .resume__container{
-        background:#F6F6F6;
-    }
+    width:100%;
+    overflow-x:hidden;
+   .resume__container{
+    background:#F6F6F6;
+   }
   .header__search{
     height:100pt; 
     background:#F9612A;
-
     .search__name{
         font-family: PingFangSC-Semibold;
         font-size: 34px;
@@ -16,20 +17,22 @@ export const IndexMain = styled(View)`
         margin-left:16pt;
         margin-right:4pt;
         float:left;
-        line-height:44pt;
+        margin-top:16pt;
     }
     .search__icon_down{
         font-size:18pt;
-        padding-top:12pt;
+        margin-top:18pt;
         color:#fff;
         float:left;
-        line-height:36pt;
         margin-left:-2pt;
+        margin-right:5pt;
     }
    
     .search__input{
         padding-top:6pt;
         margin-right:8pt;
+        margin-left:4pt;
+        margin-bottom:10pt;
         .at-search-bar{
             background-color:#F9612A;
         }
@@ -49,11 +52,11 @@ export const IndexMain = styled(View)`
         }
 
         .search__icon__{
-            margin-top:-17pt;
+            margin-top:-20pt;
             z-index:3;
             icon{
-                position:absolute;
-                margin-left:15pt;
+                position:relative;
+                margin-left:10pt;
             }
         }
     }
@@ -62,6 +65,7 @@ export const IndexMain = styled(View)`
         display:inline-block;
         width:100%;
         margin-left:16pt;
+        margin-top:5pt;
 
         .at-badge {
             margin-right:4pt;
@@ -84,8 +88,13 @@ export const IndexMain = styled(View)`
     }
   }
   .card{
+      overflow:hidden;
       margin-top:-26pt;
       padding: 6pt 2pt;
+      border-bottom:none;
+      .at-avatar{
+        background:none
+      }
     .at-card__header{
         display:none;
     }
@@ -123,18 +132,24 @@ export const IndexMain = styled(View)`
     .at-avatar{
         background:#fff;
         width:12pt;
-        height:23pt;
+        height:12pt;
         position:relative;
-        top:-4pt;
+        top:4pt;
         left:6pt;
+        background:none;
         .at-avatar__img{
+            float:left;
             height:12pt;
         }
         &.icon__grade{
+            background:none;
+            width:13pt;
+            height:16pt;
             .at-avatar__img{
+                float:left;
+                width:13pt;
+                height:16pt;
                 position:relative;
-                top:2pt;
-                height:15pt;
             }
         }
     }
@@ -174,15 +189,14 @@ export const IndexMain = styled(View)`
         color: #878787;
         margin-top:12pt;
         .at-avatar{
-            height:14pt;
-            margin-left:-3pt;
-            margin-top:4.5pt;
-            background-color:#F7F7F7;
-
+            width:10pt;
+            height:10pt;
+            margin-top:1pt;
+            margin-left:-1pt;
             .at-avatar__img{
+                float:left;
                 height:9pt;
                 width:9pt;
-                transform:translateY(-8pt);
             }
         }
         .at-tag{
@@ -210,6 +224,7 @@ export const IndexMain = styled(View)`
             flex:1 !important;
         }
         .content-inner__img{
+            float:left;
             height:12pt;
             width:12pt;
         }

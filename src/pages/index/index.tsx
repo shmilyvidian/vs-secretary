@@ -56,9 +56,8 @@ class Index extends Component {
           });
           break;
       case 1:
-          Taro.redirectTo({
-              url: `/pages/resumeUpload/index`
-          })
+          Taro.navigateTo(gennerateTaroNavigateParams('resumeUpload', {}))
+
           Taro.setNavigationBarColor({
             frontColor: '#000000',
             backgroundColor: '#FFFFFF',

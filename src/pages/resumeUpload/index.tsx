@@ -6,6 +6,8 @@ import { IndexMain } from './indexSty'
 import download from '@/assets/download.png'
 import add from '@/assets/add.png'
 import { getBackgroundFetchToken } from '@tarojs/taro'
+import './indexSty.scss'
+
 type stateType = {
     showAddTags: boolean,
     showModal:boolean,
@@ -148,7 +150,7 @@ class ResumeUpload extends Component {
                   </View>
                 </View>
 
-                <AtModal isOpened={this.state.showAddTags}>
+                {/* <AtModal isOpened={this.state.showAddTags}>
                     <AtModalHeader>创建标签</AtModalHeader>
                     <AtModalContent>
                         <AtInput
@@ -161,17 +163,16 @@ class ResumeUpload extends Component {
                     </AtModalContent>
                     <AtModalAction>
                         <Button onClick={this.addTags.bind(this, false)}>取消</Button> <Button onClick={this.addTags.bind(this, false)}>确定</Button> </AtModalAction>
-                </AtModal>
-
-                <AtModal isOpened>
-                    <AtModalHeader>创建标签</AtModalHeader>
+                </AtModal> */}
+                  <AtModal isOpened>
                     <AtModalContent>
-                      <View>复制链接到浏览器后，上传简历</View>
+                        <View>复制链接到浏览器后，上传简历</View>
                     </AtModalContent>
                     <AtModalAction>
-                        <Button onClick={this.onScrollToLower.bind(this, false)}>复制</Button>
+                      <Button>复制</Button>
                     </AtModalAction>
-                </AtModal>
+                  </AtModal>      
+
                 </ScrollView>
 
             </IndexMain>

@@ -3,19 +3,9 @@ import {  View } from '@tarojs/components'
 
 
 export const IndexMain = styled(View)`
-    .at-modal__content {
-        text-align:center;
-        min-height:208px;
-        box-sizing: border-box;
-        font-family: PingFangSC-Medium;
-        font-size: 34px;
-        color: #353535;
-        letter-spacing: 0;
-        display:flex;
-        align-items:center;
-    }
+    background:#ffffff;
     text-align:left;
-    padding-bottom:120px;
+    height:100%;
     .addTitle{
         height:40px;
         padding-left:30px;
@@ -23,6 +13,7 @@ export const IndexMain = styled(View)`
         font-family: PingFangSC-Regular;
         font-size: 28px;
         color: #2E1C14;
+        padding-top:10pt;
     }
     .addNode{
         margin:12px 0 ;
@@ -71,6 +62,7 @@ export const IndexMain = styled(View)`
                 display:inline-block;
                 background: #F6F6F6;
                 border-radius: 24px;
+                margin-bottom:6pt;
                 margin-right:16px;
                 padding:0 24px;
                 height:48px;

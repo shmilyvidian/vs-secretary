@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { View, Icon, Text } from '@tarojs/components'
+import { View, Icon, Text,ScrollView} from '@tarojs/components'
 import { AtActionSheet, AtActionSheetItem, AtInput, AtBadge, AtButton, AtIcon, AtCard, AtAvatar, AtTag, AtGrid } from "taro-ui"
 import { IndexMain } from './indexSty'
 
@@ -48,10 +48,11 @@ class Resume extends Component {
             name,
             score
         })
-        Taro.navigateTo(gennerateTaroNavigateParams('resumeInfo', {}))
         Taro.setNavigationBarTitle({
             title: '简历助手'
         });
+        Taro.navigateTo(gennerateTaroNavigateParams('resumeInfo', {}))
+      
     }
     addResume(){
         Taro.navigateTo(gennerateTaroNavigateParams('resumeAdd', {}))
@@ -66,6 +67,11 @@ class Resume extends Component {
     render() {
         return (
             <IndexMain>
+                <ScrollView 
+                scrollY
+                style='height: 100%;'
+                >
+
                 <View className='resume__container'>
                     <View className="header__search">
                         <view className="search__name" onClick={this.handleJobTypeClick.bind(this, true)}>产品经理</view>
@@ -117,10 +123,10 @@ class Resume extends Component {
                                     <view className="text_name">张三</view>
                                     <AtAvatar image={male}></AtAvatar>
                                 </View>
-                                <View className='at-col at-col-2'>
+                                <View className='at-col at-col-2' style="position:relative;top:-2pt">
                                     <AtAvatar image={grade} className="icon__grade"></AtAvatar>
                                 </View>
-                                <View className='at-col at-col-1'>
+                                <View className='at-col at-col-1' style="position:relative;top:-1pt">
                                     <Text className="text__score">7.8</Text>
                                 </View>
                             </View>
@@ -270,8 +276,54 @@ class Resume extends Component {
                                 </View>
                             </View>
                         </AtCard>
+
+                        <AtCard onClick={this.onViewResumeInfo.bind(this, '王六六','8.5')}>
+
+                            <View className='at-row'>
+                                <View className='at-col at-col-9'>
+                                    <view className="text_name">王六六</view>
+                                    <AtAvatar image={female}></AtAvatar>
+                                </View>
+                                <View className='at-col at-col-2'>
+                                    <AtAvatar image={grade} className="icon__grade"></AtAvatar>
+                                </View>
+                                <View className='at-col at-col-1'>
+                                    <Text className="text__score">8.5</Text>
+                                </View>
+                            </View>
+
+                            <view className="tags__1">
+                                <AtTag>产 品</AtTag>
+                                <AtTag>6 年</AtTag>
+                                <AtTag>本 科</AtTag>
+                                <AtTag className="no__border">行 编</AtTag>
+                            </view>
+                            <View className='at-row card__footer'>
+                                <View className='at-col col__download'>
+                                    <AtGrid mode='rect' hasBorder={false} data={
+                                        [
+                                            {
+                                                image: download,
+                                                value: '下载(13)'
+                                            },
+                                        ]
+                                    } />
+                                </View>
+                                <View className='at-col col__download'>
+                                    <AtGrid mode='rect' hasBorder={false} data={
+                                        [
+                                            {
+                                                image: share,
+                                                value: '分享'
+                                            },
+                                        ]
+                                    } />
+                                </View>
+                            </View>
+                        </AtCard>
                     </view>
                 </View>
+                </ScrollView>
             </IndexMain>
         )
     }

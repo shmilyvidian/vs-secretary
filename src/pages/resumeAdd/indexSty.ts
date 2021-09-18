@@ -3,8 +3,9 @@ import {  View } from '@tarojs/components'
 
 
 export const IndexMain = styled(View)`
+    background:#ffffff;
     text-align:left;
-    padding-bottom:120px;
+    height:100%;
     .addTitle{
         height:40px;
         padding-left:30px;
@@ -12,6 +13,7 @@ export const IndexMain = styled(View)`
         font-family: PingFangSC-Regular;
         font-size: 28px;
         color: #2E1C14;
+        padding-top:10pt;
     }
     .addNode{
         margin:12px 0 ;

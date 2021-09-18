@@ -13,6 +13,19 @@ export const IndexMain = styled(View)`
 }
 background:#F6F6F6
 .header__search{
+    .img__share{
+        .at-avatar {
+            width:16pt;
+            height:16pt;
+            margin-top:2pt;
+            .at-avatar__img{
+                float:left;
+                width:14pt;
+                height:14pt;
+            }
+        }
+        
+    }
     height:100pt; 
     background:#F9612A;
     
@@ -21,14 +34,16 @@ background:#F6F6F6
         padding-left:12pt;
     }
     .at-avatar {
-        height:16pt;
-        width:15pt;
+        width:13pt;
+        height:17pt;
         margin-left:14pt;
         background:none
         &.media {
             margin-top:1pt;
             .at-avatar__img{
-                width:12pt;
+                float:left;
+                width:13pt;
+                height:16pt;
             }
         }
         &.add{
@@ -38,7 +53,6 @@ background:#F6F6F6
    .at-avatar__img{
     height:14pt;
     width:14pt;
-    transform:translateY(-6pt);
    
    }
    .text__score{
@@ -46,6 +60,7 @@ background:#F6F6F6
     margin-left:14pt;
    }
    .text__name{
+       float:left;
        color:#fff;
    }
    .text__info{
@@ -91,8 +106,7 @@ background:#F6F6F6
       width:12pt;
       height:22pt;
       position:relative;
-      top:-4pt;
-      left:6pt;
+      left:5pt;
       .at-avatar__img{
           height:12pt;
       }
@@ -108,20 +122,34 @@ background:#F6F6F6
   }
 
   .tags__2{
+      .at-row{
+          display:flex;
+          justify-content:space-around;
+          .at-col-8 {
+                width:70%;
+            }
+      }
+    .at-tag{
+        .at-col{
+            float:left
+        }
+    }
+
     padding-left:8pt;
     padding-right:8px;
     color: #878787;
     margin-top:12pt;
     .at-avatar{
-        height:14pt;
-        margin-left:-3pt;
-        margin-top:4.5pt;
-        background-color:#F7F7F7;
-
+        width:10pt;
+        height:10pt;
+        margin-top:1pt;
+        margin-left:-1pt;
+        background:none;
+        top:6pt;
         .at-avatar__img{
+            float:left;
             height:9pt;
             width:9pt;
-            transform:translateY(-8pt);
         }
     }
     .at-tag{
@@ -130,10 +158,9 @@ background:#F6F6F6
         border-radius: 29pt;
     }
     .text__count{
-        margin-left:5pt;
+        margin-left:3pt;
         color: #ACACAC;
     }
-
     .img__download{
         margin-left:12pt;
     }
@@ -143,4 +170,5 @@ background:#F6F6F6
         margin-left:-6pt;
     }
 }
+
 `

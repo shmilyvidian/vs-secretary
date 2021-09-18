@@ -59,7 +59,7 @@ export const IndexMain = styled(View)`
   }
   .at-card__content-info {
     position:relative;
-    padding:24px;
+    padding:24px 0 0 0;
     .deleteBox{
       position:relative;
       left:-140px;
@@ -144,21 +144,27 @@ export const IndexMain = styled(View)`
       color: #2E1C14;
       float:left;
   }
-.at-avatar{
-    background:#none;
+  .at-avatar{
+    background:#fff;
     width:12pt;
-    height:23pt;
+    height:12pt;
     position:relative;
-    top:-4pt;
+    top:4pt;
     left:6pt;
+    background:none;
     .at-avatar__img{
+        float:left;
         height:12pt;
     }
     &.icon__grade{
+        background:none;
+        width:13pt;
+        height:16pt;
         .at-avatar__img{
+            float:left;
+            width:13pt;
+            height:16pt;
             position:relative;
-            top:2pt;
-            height:15pt;
         }
     }
 }
@@ -198,15 +204,14 @@ export const IndexMain = styled(View)`
     color: #878787;
     margin-top:12pt;
     .at-avatar{
-        height:14pt;
-        margin-left:-3pt;
-        margin-top:4.5pt;
-        background-color:#F7F7F7;
-
+        width:10pt;
+        height:10pt;
+        margin-top:1pt;
+        margin-left:-1pt;
         .at-avatar__img{
+            float:left;
             height:9pt;
             width:9pt;
-            transform:translateY(-8pt);
         }
     }
     .at-tag{
@@ -234,6 +239,8 @@ export const IndexMain = styled(View)`
         flex:1 !important;
     }
     .content-inner__img{
+        position:relative;
+        top:1pt;
         height:12pt;
         width:12pt;
     }

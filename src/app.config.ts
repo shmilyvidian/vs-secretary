@@ -28,7 +28,7 @@ export default {
   window: {
     backgroundTextStyle: 'light',
     navigationBarBackgroundColor: '#F9612A',
-    navigationBarTitleText: 'WeChat',
+    navigationBarTitleText: '简历助手',
     navigationBarTextStyle: 'white'
   }
 }
